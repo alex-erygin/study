@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "НарlochromisBurtoni", "sources\НарlochromisBurtoni\НарlochromisBurtoni.csproj", "{9E992C1A-679D-4DCA-948C-F9412B900DE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "sources\UnitTests\UnitTests\UnitTests.csproj", "{AB773ECA-C4BB-41F0-B972-BA40C45772EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{B70A33CE-F4DF-4CD4-A647-C46E828033D9}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{007C2C58-B3DA-437D-BB41-A1228D207837}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E992C1A-679D-4DCA-948C-F9412B900DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E992C1A-679D-4DCA-948C-F9412B900DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E992C1A-679D-4DCA-948C-F9412B900DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E992C1A-679D-4DCA-948C-F9412B900DE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB773ECA-C4BB-41F0-B972-BA40C45772EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB773ECA-C4BB-41F0-B972-BA40C45772EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB773ECA-C4BB-41F0-B972-BA40C45772EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB773ECA-C4BB-41F0-B972-BA40C45772EC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

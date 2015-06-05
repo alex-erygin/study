@@ -173,10 +173,3 @@ UpgradeLog*.htm
 FakesAssemblies/
 Source/SFT.sln.DotSettings
 StyleCopViolations.xml
-RedisHW/packages/StackExchange.Redis.1.0.414/StackExchange.Redis.1.0.414.nupkg
-RedisHW/packages/StackExchange.Redis.1.0.414/lib/net40/StackExchange.Redis.dll
-RedisHW/packages/StackExchange.Redis.1.0.414/lib/net40/StackExchange.Redis.dll.config
-RedisHW/packages/StackExchange.Redis.1.0.414/lib/net40/StackExchange.Redis.xml
-RedisHW/packages/StackExchange.Redis.1.0.414/lib/net45/StackExchange.Redis.dll
-RedisHW/packages/StackExchange.Redis.1.0.414/lib/net45/StackExchange.Redis.xml
-CNG/.nuget/
