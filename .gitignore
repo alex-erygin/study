@@ -180,3 +180,10 @@ RedisHW/packages/StackExchange.Redis.1.0.414/lib/net40/StackExchange.Redis.xml
 RedisHW/packages/StackExchange.Redis.1.0.414/lib/net45/StackExchange.Redis.dll
 RedisHW/packages/StackExchange.Redis.1.0.414/lib/net45/StackExchange.Redis.xml
 CNG/.nuget/
+msbuild-teamcity/scripts/1. Build.msbuild
+msbuild-teamcity/scripts/2. PackageWebSite.msbuild
+msbuild-teamcity/scripts/3. UnitTests.msbuild
+msbuild-teamcity/scripts/4. IntegrityCheckCreator.msbuild
+msbuild-teamcity/scripts/5. PrepareSetup.msbuild
+msbuild-teamcity/scripts/6. BuildSetup.msbuild
+msbuild-teamcity/scripts/7. Artifacts.msbuild
