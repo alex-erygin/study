@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5" DefaultTargets="HeatTarget">
+
+  <PropertyGroup>
+    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <Platform Condition="'$(Platform)' == ''">x86</Platform>
+
+    <SolutionDir Condition="'$(SolutionDir)' == ''">$(MSBuildThisFileDirectory)</SolutionDir>
+    <WixToolPath>$(SolutionDir)packages\WiX.Toolset.3.9.1208.0\tools\wix\</WixToolPath>
+
+    <OutputName Condition="'$(OutputName)' == ''">AnythingYouWant</OutputName>
+    <OutputPath Condition="'$(OutputPath)' == ''">AnythingYouWant</OutputPath>
+  </PropertyGroup>
+
+  <Import Project="$(WixToolPath)\Wix.targets" />
+
+  <ItemGroup>
+    <FolderItem Include="Installer">
+      <SourcesDirectory>$(SolutionDir)Source\Installer\</SourcesDirectory>
+      <BinaryDirectory>$(SolutionDir)Out\$(Configuration)\Installer\</BinaryDirectory>
+      <OutputFilePath>%(SourcesDirectory)ComponentGroups\MyGroup.wxs</OutputFilePath>
+      <TransformsDirectories>%(SourcesDirectory)Transforms\</TransformsDirectories>
+      <ComponentGroupName>Installer</ComponentGroupName>
+      <VarSourceDirectory>var.SourcesDir</VarSourceDirectory>
+      <TargetDirectory>installer_dir</TargetDirectory>
+    </FolderItem>
+  </ItemGroup>
+
+
+  <Target Name="HeatTarget">
+
+    <ItemGroup>
+      <TransformFiles Include="%(FolderItem.TransformsDirectories)**\*"></TransformFiles>
+    </ItemGroup>
+
+    <!--Newline in msbuild message corresponds to "%0a"-->
+
+    <Message Text="Transforms: %0a@(TransformFiles)%0a" Importance="high"></Message>
+    <Message Text="OutputFile: %0a%(FolderItem.OutputFilePath)%0a" Importance="high"></Message>
+    <Message Text="ComponentGroupName: %0a%(FolderItem.ComponentGroupName)%0a" Importance="high"></Message>
+
+	<!--http://wixtoolset.org/documentation/manual/v3/msbuild/task_reference/heatdirectory.html-->
+
+    <HeatDirectory
+      NoLogo="true"
+      ToolPath="$(WixToolPath)"
+      VerboseOutput="true"
+      AutogenerateGuids="false"
+      GenerateGuidsNow="true"
+      OutputFile="%(FolderItem.OutputFilePath)"
+      Directory="%(FolderItem.BinaryDirectory)"
+      ComponentGroupName="%(FolderItem.ComponentGroupName)"
+      KeepEmptyDirectories="true"
+      PreprocessorVariable="%(FolderItem.VarSourceDirectory)"
+      Transforms="@(TransformFiles)"
+      SuppressRegistry="true"
+      DirectoryRefId="%(FolderItem.TargetDirectory)"
+      SuppressRootDirectory="true" />
+  </Target>
+</Project>
