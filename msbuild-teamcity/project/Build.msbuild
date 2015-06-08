@@ -12,10 +12,18 @@
         <Platform Condition="'$(Platform)' == ''">Any CPU</Platform>
         <AssemblyInformationalVersion Condition="'$(BUILD_NUMBER)' == ''">Compiled By $(USERNAME)</AssemblyInformationalVersion>
         <BUILD_NUMBER Condition="'$(BUILD_NUMBER)' == ''">0.0.0.0</BUILD_NUMBER>
-		<DefineConstants Condition=" '$(DefineConstants)'==''" ></DefineConstants>
+
+        <OutDir Condition="'$(OutDir)'==''">$(MSBuildThisFileDirectory)\Out</OutDir>
+        <ArtifactsOutDir Condition="'$(ArtifactsOutDir)'==''">$(OutDir)\$(Configuration)</ArtifactsOutDir>
     </PropertyGroup>
 
+    <ItemGroup>
+      <FilesToDelete Include="$(ArtifactsOutDir)\ConsoleApp\**\*"/>
+    </ItemGroup>
+
     <Target Name="Rebuild" DependsOnTargets="Version">
+        <Delete Files="@(FilesToDelete)" />
+
         <MSBuild Projects="@(Solution)" 
                  Properties="Platform=$(Platform);Configuration=$(Configuration)"
                  Targets="Build" BuildInParallel="true" />
