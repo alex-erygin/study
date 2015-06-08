@@ -187,3 +187,6 @@ msbuild-teamcity/scripts/4. IntegrityCheckCreator.msbuild
 msbuild-teamcity/scripts/5. PrepareSetup.msbuild
 msbuild-teamcity/scripts/6. BuildSetup.msbuild
 msbuild-teamcity/scripts/7. Artifacts.msbuild
+*.ncrunchproject
+msbuild-teamcity/project/packages/
+*.ncrunchsolution
