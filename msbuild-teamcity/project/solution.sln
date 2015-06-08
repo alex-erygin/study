@@ -5,20 +5,26 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "Source\Consol
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "Source\UnitTests\UnitTests.csproj", "{FBB5D809-253E-4EC4-A939-71F4CBA78A7D}"
 EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Installer", "Source\Installer\Installer.wixproj", "{D5A86425-06B3-405A-A046-812BC3A6F462}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B82D65C8-DD79-4DA6-B6C2-BEC04D887C04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B82D65C8-DD79-4DA6-B6C2-BEC04D887C04}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B82D65C8-DD79-4DA6-B6C2-BEC04D887C04}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B82D65C8-DD79-4DA6-B6C2-BEC04D887C04}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FBB5D809-253E-4EC4-A939-71F4CBA78A7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FBB5D809-253E-4EC4-A939-71F4CBA78A7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FBB5D809-253E-4EC4-A939-71F4CBA78A7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FBB5D809-253E-4EC4-A939-71F4CBA78A7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B82D65C8-DD79-4DA6-B6C2-BEC04D887C04}.Debug|x86.ActiveCfg = Debug|x86
+		{B82D65C8-DD79-4DA6-B6C2-BEC04D887C04}.Debug|x86.Build.0 = Debug|x86
+		{B82D65C8-DD79-4DA6-B6C2-BEC04D887C04}.Release|x86.ActiveCfg = Release|x86
+		{B82D65C8-DD79-4DA6-B6C2-BEC04D887C04}.Release|x86.Build.0 = Release|x86
+		{FBB5D809-253E-4EC4-A939-71F4CBA78A7D}.Debug|x86.ActiveCfg = Debug|x86
+		{FBB5D809-253E-4EC4-A939-71F4CBA78A7D}.Debug|x86.Build.0 = Debug|x86
+		{FBB5D809-253E-4EC4-A939-71F4CBA78A7D}.Release|x86.ActiveCfg = Release|x86
+		{FBB5D809-253E-4EC4-A939-71F4CBA78A7D}.Release|x86.Build.0 = Release|x86
+		{D5A86425-06B3-405A-A046-812BC3A6F462}.Debug|x86.ActiveCfg = Debug|x86
+		{D5A86425-06B3-405A-A046-812BC3A6F462}.Debug|x86.Build.0 = Debug|x86
+		{D5A86425-06B3-405A-A046-812BC3A6F462}.Release|x86.ActiveCfg = Release|x86
+		{D5A86425-06B3-405A-A046-812BC3A6F462}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

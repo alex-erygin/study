@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Include>
+  <?define Version = "1.0.0.0" ?>
+  <?define VersionString = "1.0.0.0" ?>
+  <?define ProductCode="*" ?>
+  <?define UpgradeCode="6498AE3F-22C0-418A-BF60-0944D4160705" ?>
+  <?define Manufacturer = "The Manufacturer" ?>
+  <?define Trademark = "The Trademark" ?>
+  <?define ProductFamilyName = "The Product Family" ?>
+  <?define ShortProductName = "$(var.Trademark) The Short Product Name" ?>
+  <?define ProductName = "$(var.ShortProductName)" ?>
+
+  <?define ProductFolder = "$(var.ShortProductName)" ?>
+  <?define SourcesDir="..\..\Out\$(var.Configuration)\ConsoleApp" ?>
+  <?define LinkExecutable="ConsoleApp.exe" ?>
+
+  <?define ProgramMenuTopFolder = "$(var.Trademark)" ?>
+  <?define ProgramMenuProductFolder = "$(var.ProductName)" ?>
+</Include>

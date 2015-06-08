@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?include "Variables.wxi" ?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="$(var.ProductCode)" UpgradeCode="$(var.UpgradeCode)" Name="$(var.ProductName)" Language="1049"
+           Version="$(var.Version)" Manufacturer="$(var.Manufacturer)">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" Manufacturer="$(var.Manufacturer)"
+             Description="$(var.ProductName) $(var.Version) Installer" Keywords="Installer"
+             InstallPrivileges="elevated"
+             Comments="This installer database contains the logic and data required to install $(var.ProductName) $(var.Version)" />
+
+    <MajorUpgrade AllowDowngrades="yes" />
+    <!--    <MajorUpgrade DowngradeErrorMessage="!(loc.NewerVersionInstalled)" AllowSameVersionUpgrades="yes"-->
+    <!--                  AllowDowngrades="no" />-->
+    <Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="ManufacturerFolder" Name="$(var.Manufacturer)">
+          <Directory Id="INSTALLFOLDER" Name="$(var.ProductFolder)">
+          </Directory>
+        </Directory>
+      </Directory>
+    </Directory>
+
+
+    <!-- http://www.codeproject.com/Articles/43564/WiX-Tricks -->
+    <Property Id="ARPNOMODIFY" Value="yes" Secure="yes" />
+    <Property Id="MSIRESTARTMANAGERCONTROL" Value="Disable"/>
+
+    <!-- Basic UI -->
+    <UIRef Id="WixUI" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLFOLDER" />
+
+    <Property Id="WixShellExecTarget" Value="[#TheAppExecutable]" />
+    <CustomAction Id="LaunchApplication" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" Return="ignore" />
+
+
+    <UI>
+      <Publish Dialog="ExitDialog"
+               Control="Finish"
+               Event="DoAction"
+               Value="LaunchApplication">
+        NOT Installed
+      </Publish>
+    </UI>
+    
+    <Feature Id="ProductFeature" Title="TheApp.Setup" Level="1">
+      <ComponentGroupRef Id="MyGroup" />
+    </Feature>
+  </Product>
+</Wix>

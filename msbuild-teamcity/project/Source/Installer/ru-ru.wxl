@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WixLocalization Culture="ru-ru" xmlns="http://schemas.microsoft.com/wix/2006/localization" Codepage="1251">
+    <String Id="RequiresInstalled" Overridable="yes">Для работы приложения требуется установить</String>
+    <String Id="NewerVersionInstalled" Overridable="yes">Более новая версия [ProductName] уже установлена.</String>
+    <String Id="StartProgramLink" Overridable="yes">Локальная служба подписи</String>
+</WixLocalization>
