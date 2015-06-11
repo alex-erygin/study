@@ -19,8 +19,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCopyright("Copyright 2015 The Company")]
 [assembly: AssemblyTrademark("The Trade Mark")]
 [assembly: AssemblyConfiguration("Release")]
-[assembly: AssemblyVersion("10.0.0.0")]
-[assembly: AssemblyFileVersion("10.0.0.0")]
+[assembly: AssemblyVersion("0.0.0.0")]
+[assembly: AssemblyFileVersion("0.0.0.0")]
 [assembly: AssemblyInformationalVersion("Compiled By Erygin.Ale")]
 
 

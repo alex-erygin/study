@@ -3,20 +3,29 @@
     <?include ..\Variables.wxi?>
     <Fragment>
         <ComponentGroup Id="MyGroup">
-            <Component Id="cmpDE56883BBEE274E35EDAE1207DCCDD2E" Directory="INSTALLFOLDER" Guid="FDA70EC7-4572-4996-A162-A12F70D67239">
+            <Component Id="cmpE3D5047740BF4B22A2DF26BFF98345F7" Directory="INSTALLFOLDER" Guid="1FA1DD86-DC47-43B5-A8D5-55E58934C0E9">
+                <File Id="fil6BFAA292E466CAB2C2CA2AB22533CD4B" KeyPath="yes" Source="$(var.SourcesDir)\CONSOLEAPP.CRG" />
+            </Component>
+            <Component Id="cmpDE56883BBEE274E35EDAE1207DCCDD2E" Directory="INSTALLFOLDER" Guid="528CF264-9832-4BBE-A76D-8124DED811AB">
                 <File Id="fil4F2253009E4A20596F2C556D0F559268" KeyPath="yes" Source="$(var.SourcesDir)\ConsoleApp.exe" />
             </Component>
-            <Component Id="cmp3EFF531781FF827836F756CB972A1CAC" Directory="INSTALLFOLDER" Guid="7AA3E9D4-FE02-461D-9568-E7260F42FA8C">
+            <Component Id="cmp3EFF531781FF827836F756CB972A1CAC" Directory="INSTALLFOLDER" Guid="68C58561-2651-4A59-998C-B6449D433F46">
                 <File Id="fil8A28752FFBBC3117CB883A968E3799A0" KeyPath="yes" Source="$(var.SourcesDir)\ConsoleApp.exe.config" />
             </Component>
-            <Component Id="cmp22094383B4345DF3213899EF4889FA88" Directory="INSTALLFOLDER" Guid="A065954F-12CB-4EBF-A156-03999F6A42E6">
+            <Component Id="cmp22094383B4345DF3213899EF4889FA88" Directory="INSTALLFOLDER" Guid="969DC088-BAB0-4F9A-B44E-5BD9CE8AAA02">
                 <File Id="fil63D0E81321FB499DA5EBC969FB49D493" KeyPath="yes" Source="$(var.SourcesDir)\crgtools.dll" />
             </Component>
-            <Component Id="cmp552273875319DC66BB25E8D51007CFA7" Directory="INSTALLFOLDER" Guid="4C258456-B0C7-4C60-B6CD-EDA05AC150AD">
+            <Component Id="cmp552273875319DC66BB25E8D51007CFA7" Directory="INSTALLFOLDER" Guid="B75602E9-FA03-4823-A399-AE12FEB8D6ED">
                 <File Id="fil515EAFBA64000A2E34886B9E74011C04" KeyPath="yes" Source="$(var.SourcesDir)\crgtools64.dll" />
             </Component>
-            <Component Id="cmp18A2990E0DCCF8DA9A432241071E16BE" Directory="INSTALLFOLDER" Guid="C4651B37-5B28-4DBA-9F0B-60D70743B307">
+            <Component Id="cmp18A2990E0DCCF8DA9A432241071E16BE" Directory="INSTALLFOLDER" Guid="B2D631E0-15A6-4BA0-9F2D-7D153A4EC68B">
                 <File Id="fil07EE932ADE6DAEC71E618DD9C96D9BCA" KeyPath="yes" Source="$(var.SourcesDir)\Infotecs.RedAlert.dll" />
+            </Component>
+            <Component Id="cmp3929A6F9C151BEF982F481B3E5FE1D4E" Directory="INSTALLFOLDER" Guid="5AAE7D59-54F4-4D86-B95C-2326329F16C9">
+                <File Id="fil88F1938BEA96B8CAE3602971F207B109" KeyPath="yes" Source="$(var.SourcesDir)\LIST.CRG" />
+            </Component>
+            <Component Id="cmpE3F4E3181FD124FCB0580D6DCBFA05E7" Directory="INSTALLFOLDER" Guid="A30679C2-91EA-419C-A900-074DB8FA84F9">
+                <File Id="filDDD18980949721489CD751C0F6E6B02C" KeyPath="yes" Source="$(var.SourcesDir)\List.prg" />
             </Component>
         </ComponentGroup>
     </Fragment>
