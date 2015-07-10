@@ -191,3 +191,4 @@ msbuild-teamcity/scripts/7. Artifacts.msbuild
 msbuild-teamcity/project/packages/
 *.ncrunchsolution
 rabbit/packages/
+CQRS/packages/
