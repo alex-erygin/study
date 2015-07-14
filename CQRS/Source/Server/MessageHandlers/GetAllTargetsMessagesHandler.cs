@@ -5,7 +5,7 @@ using Nelibur.ServiceModel.Services.Operations;
 
 namespace Server.MessageHandlers
 {
-    public class GetAllTargetMessageHandler : IGet<GetAllTargetsMessage>
+    public class GetAllTargetsMessagesHandler : IGet<GetAllTargetsMessage>
     {
         public object Get(GetAllTargetsMessage request)
         {

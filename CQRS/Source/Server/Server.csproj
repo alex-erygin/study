@@ -49,8 +49,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MessageHandlers\GetAllTargetMessageHandler.cs" />
+    <Compile Include="MessageHandlers\DropTheBombMessageHandler.cs" />
+    <Compile Include="MessageHandlers\GetAllTargetsMessagesHandler.cs" />
     <Compile Include="MessageHandlers\GetPriorityTargetsMessageHandler.cs" />
+    <Compile Include="MessageHandlers\NukeAllMessageHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
