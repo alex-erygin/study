@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Messages\DropTheBombMessage.cs" />
     <Compile Include="Messages\GetAllTargetsMessage.cs" />
     <Compile Include="Messages\GetPriorityTargetsMessage.cs" />
     <Compile Include="Messages\NukeAllMessage.cs" />

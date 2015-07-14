@@ -1,6 +1,6 @@
 ﻿namespace Contracts.Messages
 {
-    class GetPriorityTargetsMessage
+    public class GetPriorityTargetsMessage
     {
     }
 }
