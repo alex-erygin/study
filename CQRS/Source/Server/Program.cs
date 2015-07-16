@@ -8,6 +8,11 @@ namespace Server
     {
         static void Main(string[] args)
         {
+            ConfigureNelibur();
+        }
+
+        private static void ConfigureNelibur()
+        {
             NeliburSoapService.Configure(x =>
             {
                 x.Bind<DropTheBombMessage, DropTheBombMessageHandler>();
