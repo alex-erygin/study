@@ -24,7 +24,8 @@ namespace Server
             Assembly.GetExecutingAssembly()
                 .GetExportedTypes()
                 .Where(x => (x.BaseType != null &&
-                        (x.BaseType == typeof (IQuery) 
+                        (x.BaseType == typeof (ICommand)
+                        || x.BaseType.BaseType == typeof(IQuery) 
                         || x.BaseType.BaseType == typeof (IQueryHandler) 
                         || x.BaseType.BaseType == typeof (ICommandHandler))))
                 .Iter(x => _container.RegisterType(x));

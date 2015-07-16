@@ -1,4 +1,5 @@
 ﻿using Contracts.Messages;
+using Microsoft.Practices.Unity;
 using Nelibur.ServiceModel.Services;
 using Server.MessageHandlers;
 
@@ -6,8 +7,11 @@ namespace Server
 {
     class Program
     {
+        private static readonly UnityContainer Container = new UnityContainer();
+
         static void Main(string[] args)
         {
+            new ServiceBuilder(Container).RegisterDependencies();
             ConfigureNelibur();
         }
 
@@ -15,10 +19,10 @@ namespace Server
         {
             NeliburSoapService.Configure(x =>
             {
-                x.Bind<DropTheBombMessage, DropTheBombMessageHandler>();
-                x.Bind<GetAllTargetsMessage, GetAllTargetsMessagesHandler>();
-                x.Bind<GetPriorityTargetsMessage, GetPriorityTargetsMessageHandler>();
-                x.Bind<NukeAllMessage, NukeAllMessageHandler>();
+                x.Bind<DropTheBombMessage, DropTheBombMessageHandler>(() => Container.Resolve<DropTheBombMessageHandler>());
+                x.Bind<GetAllTargetsMessage, GetAllTargetsMessagesHandler>(() => Container.Resolve<GetAllTargetsMessagesHandler>());
+                x.Bind<GetPriorityTargetsMessage, GetPriorityTargetsMessageHandler>(() => Container.Resolve<GetPriorityTargetsMessageHandler>());
+                x.Bind<NukeAllMessage, NukeAllMessageHandler>(() => Container.Resolve<NukeAllMessageHandler>());
             });
         }
     }

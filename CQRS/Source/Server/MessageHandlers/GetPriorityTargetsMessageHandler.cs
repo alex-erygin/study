@@ -1,16 +1,23 @@
-﻿using System.Linq;
-using Contracts;
+﻿using System;
 using Contracts.Messages;
 using Nelibur.ServiceModel.Services.Operations;
+using Server.Queries;
 
 namespace Server.MessageHandlers
 {
     public class GetPriorityTargetsMessageHandler : IGet<GetPriorityTargetsMessage>
     {
+        private readonly IQueryService _queryService;
+
+        public GetPriorityTargetsMessageHandler(IQueryService queryService)
+        {
+            if (queryService == null) throw new ArgumentNullException("queryService");
+            _queryService = queryService;
+        }
+
         public object Get(GetPriorityTargetsMessage request)
         {
-            return Enumerable.Range(0, 3)
-                .Select(x => new TargetToDestroy {Name = "Target #" + x}).ToList();
+            return _queryService.Query(new GetPriorityTargetsQuery());
         }
     }
 }
