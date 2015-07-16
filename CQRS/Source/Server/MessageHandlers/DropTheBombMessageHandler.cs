@@ -4,7 +4,7 @@ using Server.Commands;
 
 namespace Server.MessageHandlers
 {
-    public class DropTheBombMessageHandler : IPost<DropTheBombMessage>
+    public class DropTheBombMessageHandler : IPostOneWay<DropTheBombMessage>
     {
         private readonly ICommandService _commandService;
 
@@ -13,7 +13,7 @@ namespace Server.MessageHandlers
             _commandService = commandService;
         }
 
-        public object Post(DropTheBombMessage message)
+        public void PostOneWay(DropTheBombMessage message)
         {
             _commandService.Execute(new DropTheBombCommand(message.Target));
         }

@@ -1,13 +1,23 @@
-﻿using Contracts.Messages;
+﻿using System;
+using Contracts.Messages;
 using Nelibur.ServiceModel.Services.Operations;
+using Server.Commands;
 
 namespace Server.MessageHandlers
 {
-    public class NukeAllMessageHandler : IPost<NukeAllMessage>
+    public class NukeAllMessageHandler : IPostOneWay<NukeAllMessage>
     {
-        public object Post(NukeAllMessage request)
+        private readonly ICommandService _commandService;
+
+        public NukeAllMessageHandler(ICommandService commandService)
         {
-            throw new System.NotImplementedException();
+            if (commandService == null) throw new ArgumentNullException("commandService");
+            _commandService = commandService;
+        }
+
+        public void PostOneWay(NukeAllMessage request)
+        {
+            _commandService.Execute(new NukeAllCommand());
         }
     }
 }

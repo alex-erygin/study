@@ -9,7 +9,7 @@ namespace Server.CommandHandlers
 
         public void Handle(NukeAllCommand command)
         {
-            Logger.Debug("Exterminatus performed");
+            Logger.Fatal("Exterminatus performed");
         }
     }
 }
