@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls.WebParts;
+using webapp.Models;
 
 namespace webapp.Controllers
 {
@@ -16,6 +18,11 @@ namespace webapp.Controllers
         public ActionResult Basic()
         {
             return View();
+        }
+
+        public ActionResult Advanced()
+        {
+            return View(new Person {FirstName = "Диего", LastName = "де ла Вега"});
         }
 
         public ActionResult About()

@@ -1,0 +1,25 @@
+﻿@model webapp.Models.Person
+
+@{
+    ViewBag.Title = "Advanced";
+}
+
+<h2>
+    <span data-bind="text: getName()"></span>
+</h2>
+
+@section Scripts {
+    <script>
+        function ViewModel(firstName, lastName) {
+            var self = this;
+            self.Name = firstName + ' ' + lastName;
+
+            self.getName = function() {
+                return self.Name;
+            };
+        };
+
+        var viewModel = new ViewModel('@Model.FirstName', '@Model.LastName');
+        ko.applyBindings(viewModel);
+    </script>
+}
