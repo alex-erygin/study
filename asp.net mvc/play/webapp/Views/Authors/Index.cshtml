@@ -1,6 +1,8 @@
-﻿@model IEnumerable<webapp.Models.Author>
+﻿@using webapp.Models
+@model IEnumerable<webapp.Models.Author>
 @{
     ViewBag.Title = "Authors";
+    var queryOptions = (QueryOptions) ViewBag.QueryOptions;
 }
 
 <h2>Index</h2>
@@ -10,14 +12,10 @@
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
+        <th>@Html.BuildSortableLink("First Name", "Index", "FirstName", queryOptions)</th>
+        <th>@Html.BuildSortableLink("Last Name", "Index", "LastName", queryOptions)</th>
         <th>
-            @Html.DisplayNameFor(model => model.FirstName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastName)
-        </th>
-        <th>
-            Acions
+            Actions
         </th>
     </tr>
     </thead>
