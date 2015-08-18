@@ -15,10 +15,10 @@ namespace webapp.Controllers
         // GET: Authors
         public ActionResult Index([Form] QueryOptions queryOptions)
         {
-            var authors = db.Author.OrderBy(queryOptions.Sort);
+            var authors = db.Author.OrderBy(queryOptions.Sort).ToList();
             ViewBag.QueryOptions = queryOptions;
 
-            return View(db.Author.ToList());
+            return View(authors);
         }
 
         // GET: Authors/Details/5
