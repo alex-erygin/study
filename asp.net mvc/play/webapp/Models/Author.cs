@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace webapp.Models
 {
@@ -7,8 +8,10 @@ namespace webapp.Models
     {
         public int Id { get; set; }
 
+        [Required]
         public string FirstName { get; set; }
 
+        [Required]
         public string LastName { get; set; }
 
         public string Biography { get; set; }
