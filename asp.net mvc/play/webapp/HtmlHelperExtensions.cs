@@ -1,8 +1,5 @@
-﻿using System.CodeDom;
-using System.Runtime.CompilerServices;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
-using Microsoft.SqlServer.Server;
 using Newtonsoft.Json;
 using webapp.Models;
 
@@ -21,11 +18,10 @@ namespace webapp
             return new HtmlString(JsonConvert.SerializeObject(model, settings));
         }
 
-        public static MvcHtmlString BuildSortableLink(this HtmlHelper htmlHelper,
-   string fieldName, string actionName, string sortField, QueryOptions queryOptions)
+        public static MvcHtmlString BuildSortableLink(
+            this HtmlHelper htmlHelper, string fieldName, string actionName, string sortField, QueryOptions queryOptions)
         {
             var urlHelper = new UrlHelper(htmlHelper.ViewContext.RequestContext);
-
             var isCurrentSortField = queryOptions.SortField == sortField;
 
             return new MvcHtmlString(string.Format("<a href=\"{0}\">{1} {2}</a>",
