@@ -5,53 +5,48 @@
 		<title>Knockout intro</title>
 	</head>
 	<body>
-		<h2>Your seat reservations (<span data-bind="text: seats().length"></span>)</h2>
+
 
 		<div id="posts">
-			
+			<ul data-bind="foreach: posts">
+				<li data-bind="text: title"></li>
+			</ul>
 		</div>
-
-
-		<table>
-		    <thead><tr>
-		        <th>Passenger name</th><th>Meal</th><th>Surcharge</th><th></th>
-		    </tr></thead>
-		    
-		    <button data-bind="click: addSeat, enable: seats().length < 5">Reserve another seat</button>
-		    
-		    
-		    <tbody data-bind="foreach: seats">
-		        <tr>
-		            <td><input data-bind="value: name"/></td>
-		            <td><select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
-		            <td data-bind="text: formattedPrice"></td>
-		            <td><a href="#" data-bind="click: $root.removeSeat">Remove</a></td>
-		        </tr>
-		    </tbody>
-		</table>
-
-	    <h3 data-bind="visible: totalSurcharge() > 0">
-	        Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
-	    </h3>
 
 
 		<script src="knockout-3.3.0.js"></script>
 
 		<script>
-			function Post() {
+			function Post(date, title, description, content) {
 				var self = this;
-			}
+				self.date = ko.observable(date);
+				self.title = ko.observable(title);
+				self.description = ko.observable(description);
+				self.content = ko.observable(content);
+				self.comments = ko.observableArray();
+			};
+
+			function Comment() {
+				var self = this;
+				self.date = ko.observable();
+				self.text = ko.observable();
+			};
 
 			// Overall viewmodel for this screen, along with initial state
 			function BlogViewModel() {
 			    var self = this;
 
-			    self.posts = ko.observableArray([{name: "Bungle", type: "Bear"}, {name: "George", type: "Hippo"}, {name: "Zippy", type: "Unknown"}]);
+			    self.posts = ko.observableArray();
+				
+				for (var i = 1; i <= 10; i++) {
+					self.posts.push(new Post(new Date().toJSON().slice(0,10), "Пост №" + i, "Пост о " + i, "123321 #" + i));
+				};
+				
 			
 
 			}
 
-			ko.applyBindings(new ReservationsViewModel());
+			ko.applyBindings(new BlogViewModel());
 		</script>
 	</body>
 </html>
