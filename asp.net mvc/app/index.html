@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Knockout intro</title>
+	</head>
+	<body>
+		<h2>Your seat reservations (<span data-bind="text: seats().length"></span>)</h2>
+
+		<div id="posts">
+			
+		</div>
+
+
+		<table>
+		    <thead><tr>
+		        <th>Passenger name</th><th>Meal</th><th>Surcharge</th><th></th>
+		    </tr></thead>
+		    
+		    <button data-bind="click: addSeat, enable: seats().length < 5">Reserve another seat</button>
+		    
+		    
+		    <tbody data-bind="foreach: seats">
+		        <tr>
+		            <td><input data-bind="value: name"/></td>
+		            <td><select data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select></td>
+		            <td data-bind="text: formattedPrice"></td>
+		            <td><a href="#" data-bind="click: $root.removeSeat">Remove</a></td>
+		        </tr>
+		    </tbody>
+		</table>
+
+	    <h3 data-bind="visible: totalSurcharge() > 0">
+	        Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
+	    </h3>
+
+
+		<script src="knockout-3.3.0.js"></script>
+
+		<script>
+			function Post() {
+				var self = this;
+			}
+
+			// Overall viewmodel for this screen, along with initial state
+			function BlogViewModel() {
+			    var self = this;
+
+			    self.posts = ko.observableArray([{name: "Bungle", type: "Bear"}, {name: "George", type: "Hippo"}, {name: "Zippy", type: "Unknown"}]);
+			
+
+			}
+
+			ko.applyBindings(new ReservationsViewModel());
+		</script>
+	</body>
+</html>
