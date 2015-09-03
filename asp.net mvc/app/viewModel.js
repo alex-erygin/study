@@ -49,11 +49,21 @@ var BlogViewModel = function() {
 		console.log(self.selectedPost());
 	}
 
+	function AddComment(options) {
+		options.date = getDate();
+		options.content = "omg";
+		var comment = new Comment();
+		comment.date = options.date;
+		comment.content = options.content;
+		self.selectedPost().comments.push(comment);
+	}
+
 	Init();
 
 	return {
 		posts : self.posts,
 		selectPost : SelectPost,
-		selectedPost : self.selectedPost
+		selectedPost : self.selectedPost,
+		AddComment : AddComment
 	};
 };
