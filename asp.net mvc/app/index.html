@@ -3,50 +3,44 @@
 	<head>
 		<meta charset="utf-8" />
 		<title>Knockout intro</title>
+		<script type="text/javascript" src="viewModel.js"></script>
 	</head>
 	<body>
-
-
 		<div id="posts">
+			<div>
+				<a href="#">Добавить пост</a>
+				<a href="#">Удалить пост</a>
+			</div>
+			<h4>Посты</h4>
 			<ul data-bind="foreach: posts">
-				<li data-bind="text: title"></li>
+				<li data-bind="text: title, click: viewModel.selectPost($data)"></li>
 			</ul>
 		</div>
 
+		<div>
+			Заголовок: <span data-bind="text: viewModel.selectedPost().title"></span>
+		</div>
+
+		<div id="postContent">
+			Текст поста: <span data-bind="text: viewModel.selectedPost().content"></span>
+		</div>
+
+		<div id="postDescription">
+			Описание: <span data-bind="text: viewModel.selectedPost().description"></span>
+		</div>
+
+		<div id="dateCreated">
+			Описание: <span data-bind="text: viewModel.selectedPost().date"></span>
+		</div>
+
+		<div id="comments">
+		</div>
 
 		<script src="knockout-3.3.0.js"></script>
 
 		<script>
-			function Post(date, title, description, content) {
-				var self = this;
-				self.date = ko.observable(date);
-				self.title = ko.observable(title);
-				self.description = ko.observable(description);
-				self.content = ko.observable(content);
-				self.comments = ko.observableArray();
-			};
-
-			function Comment() {
-				var self = this;
-				self.date = ko.observable();
-				self.text = ko.observable();
-			};
-
-			// Overall viewmodel for this screen, along with initial state
-			function BlogViewModel() {
-			    var self = this;
-
-			    self.posts = ko.observableArray();
-				
-				for (var i = 1; i <= 10; i++) {
-					self.posts.push(new Post(new Date().toJSON().slice(0,10), "Пост №" + i, "Пост о " + i, "123321 #" + i));
-				};
-				
-			
-
-			}
-
-			ko.applyBindings(new BlogViewModel());
+			var viewModel = new BlogViewModel();
+			ko.applyBindings(viewModel);
 		</script>
 	</body>
 </html>
