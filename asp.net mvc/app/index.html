@@ -33,7 +33,13 @@
 			Описание: <span data-bind="text: viewModel.selectedPost().date"></span>
 		</div>
 
-		<div id="comments">
+		<div>
+			<hr/>
+			<div data-bind="foreach: viewModel.selectedPost().comments()">
+				<span data-bind="text: content"></span>
+				<span data-bind="text: date"></span>
+				<hr/>
+			</div>
 		</div>
 
 		<script src="knockout-3.3.0.js"></script>
