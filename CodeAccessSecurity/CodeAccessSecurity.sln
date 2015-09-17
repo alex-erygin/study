@@ -9,6 +9,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{C181
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityCriticalConsoleApp", "Samples\SecurityCriticalConsoleApp\SecurityCriticalConsoleApp.csproj", "{A79C685E-2D0C-42BB-9A2A-CCA7B8FD62CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunCodeInSandboxApp", "Samples\RunCodeInSandboxApp\RunCodeInSandboxApp.csproj", "{D57B38E4-8A3B-492E-AAE2-4336C9CD1EBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DangerousLib", "DangerousLib\DangerousLib.csproj", "{1DA6B057-49B0-4912-9958-3896FDB7EEAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,14 @@ Global
 		{A79C685E-2D0C-42BB-9A2A-CCA7B8FD62CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A79C685E-2D0C-42BB-9A2A-CCA7B8FD62CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A79C685E-2D0C-42BB-9A2A-CCA7B8FD62CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D57B38E4-8A3B-492E-AAE2-4336C9CD1EBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D57B38E4-8A3B-492E-AAE2-4336C9CD1EBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D57B38E4-8A3B-492E-AAE2-4336C9CD1EBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D57B38E4-8A3B-492E-AAE2-4336C9CD1EBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DA6B057-49B0-4912-9958-3896FDB7EEAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DA6B057-49B0-4912-9958-3896FDB7EEAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DA6B057-49B0-4912-9958-3896FDB7EEAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DA6B057-49B0-4912-9958-3896FDB7EEAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,5 +42,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D54EFE28-9C5B-4245-A4B3-2FD15AA86474} = {C181B680-1B5F-4420-B5DB-D42E892F0983}
 		{A79C685E-2D0C-42BB-9A2A-CCA7B8FD62CA} = {C181B680-1B5F-4420-B5DB-D42E892F0983}
+		{D57B38E4-8A3B-492E-AAE2-4336C9CD1EBD} = {C181B680-1B5F-4420-B5DB-D42E892F0983}
+		{1DA6B057-49B0-4912-9958-3896FDB7EEAF} = {C181B680-1B5F-4420-B5DB-D42E892F0983}
 	EndGlobalSection
 EndGlobal

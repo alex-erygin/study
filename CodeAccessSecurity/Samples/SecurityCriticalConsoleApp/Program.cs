@@ -10,7 +10,7 @@ namespace SecurityCriticalConsoleApp
 	{
 		static void Main(string[] args)
 		{
-			//все сработает, потомучто мы - SecurityCritical!.
+			//все сработает, потому что мы - SecurityCritical 
 			uint ui = GetVersion();
 			Console.ReadKey(true);
 		}
