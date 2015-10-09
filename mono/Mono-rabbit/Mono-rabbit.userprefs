@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="AuditLogger\Program.cs">
+    <Files>
+      <File FileName="NCCService\Program.cs" Line="8" Column="3" />
+      <File FileName="AuditLogger\Program.cs" Line="24" Column="53" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <StartupItems>
+    <String>NCCService\NCCService.csproj</String>
+    <String>AuditLogger\AuditLogger.csproj</String>
+  </StartupItems>
+</Properties>
