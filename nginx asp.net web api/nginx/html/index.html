@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="eonKioskApp">
+<head>
+    <title>Patient Subjective</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    
+    <!-- Bootstrap core CSS -->
+    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="Bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="Bootstrap/Theme.css" rel="stylesheet">
+    <link rel="stylesheet" href="AngularJS/jquery-ui.min.css">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">    
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- AngularJS -->
+    <script src="AngularJS/jquery-1.9.1.min.js"></script>
+    <script src="AngularJS/angular.min.js"></script>
+    <script src="AngularJS/angular-route.min.js"></script>
+    
+    <script src="AngularJS/angular-resource.min.js"></script>
+    <script src="AngularJS/angular-cookies.min.js"></script>
+    <script src="AngularJS/angular-sanitize.js"></script>
+    <script src="AngularJS/jquery-ui.min.js"></script>
+    <script src="AngularJS/jSignature.min.js"></script>
+    <script src="AngularJS/bowser.min.js" type="text/javascript" ></script>
+    
+    
+    <script src="app.js"></script>
+    <script src="controllers.js"></script>
+    <script src="services.js"></script>
+    <script type="text/ng-template" id="start1.html">
+
+<div >
+    <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title" >The Demonstration</h3>
+            </div>
+
+<div class="panel-body center-block">
+<form novalidate>
+    <div style="text-align: center">
+     <h1 ng-bind-html="clinicName"></h1>
+    </div>
+      <div>
+            <button ng-click="clickStart()" class="btn btn-primary pull-right" >Start</button>
+      </div>
+ </form>  
+</div>
+    </div>
+   </div>    
+</script>
+</head>
+<body>
+    <div class="col-xs-12 col-lg-4 col-md-4 col-sm-8 center" ng-view></div>
+</body>
+</html>

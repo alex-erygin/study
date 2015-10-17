@@ -124,7 +124,7 @@ publish/
 # NuGet Packages Directory
 packages/*
 ## TODO: If the tool you use requires repositories.config uncomment the next line
-#!packages/repositories.config
+!packages/repositories.config
 
 # Enable "build/" folder in the NuGet Packages folder since NuGet packages use it for MSBuild targets
 # This line needs to be after the ignore of the build folder (and the packages folder if the line above has been uncommented)
@@ -192,3 +192,30 @@ msbuild-teamcity/project/packages/
 *.ncrunchsolution
 rabbit/packages/
 CQRS/packages/
+nginx asp.net web api/packages/WiX.Toolset.3.9.1208.0/
+nginx asp.net web api/packages/NLog.4.0.1/
+nginx asp.net web api/packages/MSBuild.Microsoft.VisualStudio.Web.targets.12.0.4/
+nginx asp.net web api/packages/Microsoft.AspNet.WebApi.5.2.3/Microsoft.AspNet.WebApi.5.2.3.nupkg
+nginx asp.net web api/packages/Microsoft.AspNet.WebApi.5.2.3/
+nginx asp.net web api/packages/Microsoft.AspNet.WebApi.Client.5.2.3/
+nginx asp.net web api/packages/Microsoft.AspNet.WebApi.Core.5.2.3/
+nginx asp.net web api/packages/Microsoft.AspNet.WebApi.Cors.5.2.3/
+nginx asp.net web api/packages/Microsoft.AspNet.WebApi.Owin.5.2.3/
+nginx asp.net web api/packages/Microsoft.AspNet.WebApi.OwinSelfHost.5.2.3/
+nginx asp.net web api/packages/Microsoft.AspNet.Cors.5.2.3/
+nginx asp.net web api/packages/NUnit.Runners.2.6.4/
+nginx asp.net web api/packages/WiX.3.9.2/
+nginx asp.net web api/packages/angularjs.1.3.15/
+nginx asp.net web api/packages/bootstrap.3.3.4/
+nginx asp.net web api/packages/Newtonsoft.Json.6.0.4/
+nginx asp.net web api/packages/Newtonsoft.Json.7.0.1/
+nginx asp.net web api/packages/jQuery.1.9.1/
+nginx asp.net web api/packages/Owin.1.0/
+nginx asp.net web api/packages/Microsoft.Owin.Host.HttpListener.3.0.1/
+nginx asp.net web api/packages/Microsoft.Owin.Hosting.3.0.1/
+nginx asp.net web api/packages/NLog.Config.4.0.1/
+nginx asp.net web api/packages/NUnit.2.6.4/
+nginx asp.net web api/packages/Ookii.Dialogs.1.0/
+nginx asp.net web api/packages/NLog.Schema.4.0.1/
+nginx asp.net web api/packages/Microsoft.AspNet.WebApi.WebHost.5.2.3/
+nginx asp.net web api/packages/Microsoft.Owin.3.0.1/
