@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,7 +23,23 @@ namespace Client
 			{
 				transport.Open();
 				client.Ping();
+
+				var requestDto = new SampleRequestDto();
+				requestDto.Id = 1;
+				requestDto.Data = "SampleData";
+
+				var timer = new Stopwatch();
+				timer.Start();
+				for (int i = 0; i < 10000; i++)
+				{
+					client.SendRequest(requestDto);
+				}
+				timer.Stop();
+
+				Console.WriteLine(timer.ElapsedMilliseconds);
 			}
+
+			Console.ReadKey();
 		}
 	}
 }

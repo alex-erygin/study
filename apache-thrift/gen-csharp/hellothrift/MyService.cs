@@ -24,6 +24,11 @@ namespace hellothrift
       IAsyncResult Begin_Ping(AsyncCallback callback, object state);
       void End_Ping(IAsyncResult asyncResult);
       #endif
+      SampleResponseDto SendRequest(SampleRequestDto request);
+      #if SILVERLIGHT
+      IAsyncResult Begin_SendRequest(AsyncCallback callback, object state, SampleRequestDto request);
+      SampleResponseDto End_SendRequest(IAsyncResult asyncResult);
+      #endif
     }
 
     public class Client : IDisposable, Iface {
@@ -140,12 +145,75 @@ namespace hellothrift
         return;
       }
 
+      
+      #if SILVERLIGHT
+      public IAsyncResult Begin_SendRequest(AsyncCallback callback, object state, SampleRequestDto request)
+      {
+        return send_SendRequest(callback, state, request);
+      }
+
+      public SampleResponseDto End_SendRequest(IAsyncResult asyncResult)
+      {
+        oprot_.Transport.EndFlush(asyncResult);
+        return recv_SendRequest();
+      }
+
+      #endif
+
+      public SampleResponseDto SendRequest(SampleRequestDto request)
+      {
+        #if !SILVERLIGHT
+        send_SendRequest(request);
+        return recv_SendRequest();
+
+        #else
+        var asyncResult = Begin_SendRequest(null, null, request);
+        return End_SendRequest(asyncResult);
+
+        #endif
+      }
+      #if SILVERLIGHT
+      public IAsyncResult send_SendRequest(AsyncCallback callback, object state, SampleRequestDto request)
+      #else
+      public void send_SendRequest(SampleRequestDto request)
+      #endif
+      {
+        oprot_.WriteMessageBegin(new TMessage("SendRequest", TMessageType.Call, seqid_));
+        SendRequest_args args = new SendRequest_args();
+        args.Request = request;
+        args.Write(oprot_);
+        oprot_.WriteMessageEnd();
+        #if SILVERLIGHT
+        return oprot_.Transport.BeginFlush(callback, state);
+        #else
+        oprot_.Transport.Flush();
+        #endif
+      }
+
+      public SampleResponseDto recv_SendRequest()
+      {
+        TMessage msg = iprot_.ReadMessageBegin();
+        if (msg.Type == TMessageType.Exception) {
+          TApplicationException x = TApplicationException.Read(iprot_);
+          iprot_.ReadMessageEnd();
+          throw x;
+        }
+        SendRequest_result result = new SendRequest_result();
+        result.Read(iprot_);
+        iprot_.ReadMessageEnd();
+        if (result.__isset.success) {
+          return result.Success;
+        }
+        throw new TApplicationException(TApplicationException.ExceptionType.MissingResult, "SendRequest failed: unknown result");
+      }
+
     }
     public class Processor : TProcessor {
       public Processor(Iface iface)
       {
         iface_ = iface;
         processMap_["Ping"] = Ping_Process;
+        processMap_["SendRequest"] = SendRequest_Process;
       }
 
       protected delegate void ProcessFunction(int seqid, TProtocol iprot, TProtocol oprot);
@@ -186,6 +254,19 @@ namespace hellothrift
         Ping_result result = new Ping_result();
         iface_.Ping();
         oprot.WriteMessageBegin(new TMessage("Ping", TMessageType.Reply, seqid)); 
+        result.Write(oprot);
+        oprot.WriteMessageEnd();
+        oprot.Transport.Flush();
+      }
+
+      public void SendRequest_Process(int seqid, TProtocol iprot, TProtocol oprot)
+      {
+        SendRequest_args args = new SendRequest_args();
+        args.Read(iprot);
+        iprot.ReadMessageEnd();
+        SendRequest_result result = new SendRequest_result();
+        result.Success = iface_.SendRequest(args.Request);
+        oprot.WriteMessageBegin(new TMessage("SendRequest", TMessageType.Reply, seqid)); 
         result.Write(oprot);
         oprot.WriteMessageEnd();
         oprot.Transport.Flush();
@@ -280,6 +361,185 @@ namespace hellothrift
 
       public override string ToString() {
         StringBuilder sb = new StringBuilder("Ping_result(");
+        sb.Append(")");
+        return sb.ToString();
+      }
+
+    }
+
+
+    #if !SILVERLIGHT
+    [Serializable]
+    #endif
+    public partial class SendRequest_args : TBase
+    {
+      private SampleRequestDto _request;
+
+      public SampleRequestDto Request
+      {
+        get
+        {
+          return _request;
+        }
+        set
+        {
+          __isset.request = true;
+          this._request = value;
+        }
+      }
+
+
+      public Isset __isset;
+      #if !SILVERLIGHT
+      [Serializable]
+      #endif
+      public struct Isset {
+        public bool request;
+      }
+
+      public SendRequest_args() {
+      }
+
+      public void Read (TProtocol iprot)
+      {
+        TField field;
+        iprot.ReadStructBegin();
+        while (true)
+        {
+          field = iprot.ReadFieldBegin();
+          if (field.Type == TType.Stop) { 
+            break;
+          }
+          switch (field.ID)
+          {
+            case 1:
+              if (field.Type == TType.Struct) {
+                Request = new SampleRequestDto();
+                Request.Read(iprot);
+              } else { 
+                TProtocolUtil.Skip(iprot, field.Type);
+              }
+              break;
+            default: 
+              TProtocolUtil.Skip(iprot, field.Type);
+              break;
+          }
+          iprot.ReadFieldEnd();
+        }
+        iprot.ReadStructEnd();
+      }
+
+      public void Write(TProtocol oprot) {
+        TStruct struc = new TStruct("SendRequest_args");
+        oprot.WriteStructBegin(struc);
+        TField field = new TField();
+        if (Request != null && __isset.request) {
+          field.Name = "request";
+          field.Type = TType.Struct;
+          field.ID = 1;
+          oprot.WriteFieldBegin(field);
+          Request.Write(oprot);
+          oprot.WriteFieldEnd();
+        }
+        oprot.WriteFieldStop();
+        oprot.WriteStructEnd();
+      }
+
+      public override string ToString() {
+        StringBuilder sb = new StringBuilder("SendRequest_args(");
+        sb.Append("Request: ");
+        sb.Append(Request== null ? "<null>" : Request.ToString());
+        sb.Append(")");
+        return sb.ToString();
+      }
+
+    }
+
+
+    #if !SILVERLIGHT
+    [Serializable]
+    #endif
+    public partial class SendRequest_result : TBase
+    {
+      private SampleResponseDto _success;
+
+      public SampleResponseDto Success
+      {
+        get
+        {
+          return _success;
+        }
+        set
+        {
+          __isset.success = true;
+          this._success = value;
+        }
+      }
+
+
+      public Isset __isset;
+      #if !SILVERLIGHT
+      [Serializable]
+      #endif
+      public struct Isset {
+        public bool success;
+      }
+
+      public SendRequest_result() {
+      }
+
+      public void Read (TProtocol iprot)
+      {
+        TField field;
+        iprot.ReadStructBegin();
+        while (true)
+        {
+          field = iprot.ReadFieldBegin();
+          if (field.Type == TType.Stop) { 
+            break;
+          }
+          switch (field.ID)
+          {
+            case 0:
+              if (field.Type == TType.Struct) {
+                Success = new SampleResponseDto();
+                Success.Read(iprot);
+              } else { 
+                TProtocolUtil.Skip(iprot, field.Type);
+              }
+              break;
+            default: 
+              TProtocolUtil.Skip(iprot, field.Type);
+              break;
+          }
+          iprot.ReadFieldEnd();
+        }
+        iprot.ReadStructEnd();
+      }
+
+      public void Write(TProtocol oprot) {
+        TStruct struc = new TStruct("SendRequest_result");
+        oprot.WriteStructBegin(struc);
+        TField field = new TField();
+
+        if (this.__isset.success) {
+          if (Success != null) {
+            field.Name = "Success";
+            field.Type = TType.Struct;
+            field.ID = 0;
+            oprot.WriteFieldBegin(field);
+            Success.Write(oprot);
+            oprot.WriteFieldEnd();
+          }
+        }
+        oprot.WriteFieldStop();
+        oprot.WriteStructEnd();
+      }
+
+      public override string ToString() {
+        StringBuilder sb = new StringBuilder("SendRequest_result(");
+        sb.Append("Success: ");
+        sb.Append(Success== null ? "<null>" : Success.ToString());
         sb.Append(")");
         return sb.ToString();
       }

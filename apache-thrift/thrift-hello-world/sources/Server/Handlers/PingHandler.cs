@@ -9,5 +9,10 @@ namespace Server.Handlers
 		{
 			Console.WriteLine("Ping received.");
 		}
+
+		public SampleResponseDto SendRequest(SampleRequestDto request)
+		{
+			return new SampleResponseDto() {Data = "Привет."};
+		}
 	}
 }

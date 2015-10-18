@@ -17,6 +17,8 @@ namespace Server
 			multiProcessor.RegisterProcessor("MyService", processor);
 
 			TServerTransport transport = new TServerSocket(9090);
+			var transport2 = new TMemoryBuffer(new byte[4096]);
+
 			TServer server = new TThreadPoolServer(multiProcessor, transport);
 			server.Serve();
 		}
