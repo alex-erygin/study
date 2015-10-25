@@ -24,6 +24,9 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CppStudy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="Bender.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -32,7 +35,10 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Overloading.cpp">
+    <ClCompile Include="CppStudy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Bender.cpp">

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Overloading", "Overloading\Overloading.vcxproj", "{5210F03A-F500-4D12-9450-FBAA5A6CE70C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTests", "UnitTests\UnitTests.vcxproj", "{012FF781-C19D-4F14-83EC-570047F68C15}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppStudy", "CppStudy\CppStudy.vcxproj", "{C95BC451-B2C4-4280-A7BA-2E071896F29B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Win32 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5210F03A-F500-4D12-9450-FBAA5A6CE70C}.Debug|Win32.ActiveCfg = Debug|Win32
-		{5210F03A-F500-4D12-9450-FBAA5A6CE70C}.Debug|Win32.Build.0 = Debug|Win32
-		{5210F03A-F500-4D12-9450-FBAA5A6CE70C}.Release|Win32.ActiveCfg = Release|Win32
-		{5210F03A-F500-4D12-9450-FBAA5A6CE70C}.Release|Win32.Build.0 = Release|Win32
+		{012FF781-C19D-4F14-83EC-570047F68C15}.Debug|Win32.ActiveCfg = Debug|Win32
+		{012FF781-C19D-4F14-83EC-570047F68C15}.Debug|Win32.Build.0 = Debug|Win32
+		{012FF781-C19D-4F14-83EC-570047F68C15}.Release|Win32.ActiveCfg = Release|Win32
+		{012FF781-C19D-4F14-83EC-570047F68C15}.Release|Win32.Build.0 = Release|Win32
+		{C95BC451-B2C4-4280-A7BA-2E071896F29B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C95BC451-B2C4-4280-A7BA-2E071896F29B}.Debug|Win32.Build.0 = Debug|Win32
+		{C95BC451-B2C4-4280-A7BA-2E071896F29B}.Release|Win32.ActiveCfg = Release|Win32
+		{C95BC451-B2C4-4280-A7BA-2E071896F29B}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
