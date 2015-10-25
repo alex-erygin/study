@@ -18,3 +18,11 @@ void Bender::Bend() {
 void Bender::Bend(double force, double angle) {
 	std::cout << "Bend with force " << force << " and angle " << angle << "\n";
 }
+
+bool Bender::operator==(const Bender& other){
+	return other.age == this->age;
+}
+
+bool operator ==(const Bender & bender1, const Bender & bender2){
+	return bender1.age == bender2.age;
+}
