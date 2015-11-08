@@ -55,7 +55,7 @@ public:
 	{ }
 
 	//explicit constructor;
-	Box(int size) : _width(size), _height(size), _length(size)
+	explicit Box(int size) : _width(size), _height(size), _length(size)
 	{ }
 
 	int volume() {
