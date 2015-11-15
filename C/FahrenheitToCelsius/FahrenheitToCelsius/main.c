@@ -9,7 +9,7 @@
 #include <stdio.h>
 
 int main(int argc, const char * argv[]) {
-    int fahr, celsius;
+    float fahr, celsius;
     int lower, upper, step;
     
     lower = 0;
@@ -18,11 +18,13 @@ int main(int argc, const char * argv[]) {
     
     fahr = lower;
     
+    printf("Fahr\tCelsium\n");
+    printf("----\t-------\n");
     while(fahr <= upper){
         celsius = 5 * (fahr-32) / 9;
-        printf("%d\t%d\n", fahr, celsius);
+        printf("%.0f\t\t%3.2f\n", fahr, celsius);
         fahr = fahr + step;
     }
-8
+
     return 0;
 }
