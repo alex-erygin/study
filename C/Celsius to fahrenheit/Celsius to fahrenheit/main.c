@@ -8,11 +8,13 @@
 
 #include <stdio.h>
 
+#define max_cells 100
+
+#define print_header printf("Celsius\t\tFahrenheit\n"); printf("-------\t\t----------\n");
 int main(int argc, const char * argv[]) {
+    print_header
     
-    printf("Celsius\t\tFahrenheit\n");
-    printf("-------\t\t----------\n");
-    for (int cels = 0; cels < 100; cels += 3) {
+    for (int cels = 0; cels < max_cells; cels += 3) {
         float fahr = cels*9/5+32;
         printf("%d\t\t\t%.0f\n", cels, fahr);
     }
