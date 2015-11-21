@@ -19,12 +19,14 @@ int main(int argc, const char * argv[]) {
     nl = nw = nc = 0;
     
     while((c = getchar()) != EOF) {
+        putchar(c);
         ++nc;
         if(c == '\n'){
             ++nl;
         }
         if(c == ' ' || c == '\n' || c == '\t'){
             state = OUT;
+            putchar('\n');
         }
         else if (state == OUT){
             state = IN;
