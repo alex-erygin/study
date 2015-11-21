@@ -24,8 +24,6 @@ int main(int argc, const char * argv[]) {
         else{
             putchar(c);
         }
-
     }
-    
     return 0;
 }
