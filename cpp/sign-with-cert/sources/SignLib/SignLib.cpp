@@ -19,6 +19,7 @@
 void SignLib::Signer::Sign(System::String^ signerName, System::String^ fileName, System::String^ signatureFileName)
 {
 	System::Console::WriteLine("Sign");
+     Sign();
 }
 
 void SignLib::Signer::Verify(System::String^ signerName, System::String^ signatureFileName, System::String^ dataFileName)
@@ -45,11 +46,23 @@ void SignLib::Signer::Sign()
      System::Console::WriteLine("Signing");
 
      //open certificate store
+     System::Console::WriteLine("Открываем хранилище сертификатов");
      hStorehandle = ::CertOpenStore(
           CERT_STORE_PROV_SYSTEM,
           0,
           NULL,
           CERT_SYSTEM_STORE_CURRENT_USER, CERT_PERSONAL_STORE_NAME);
 
+     if (NULL == hStorehandle)
+     {
+          throw gcnew System::Exception("Не удалось открыть хранилище сертификатов");
+     }
 
+     PCCERT_CONTEXT pCertContext = NULL;
+     while( pCertContext = CertEnumCertificatesInStore (hStorehandle, pCertContext) )
+     {
+          System::IntPtr certHandle((void*)pCertContext);
+          System::Security::Cryptography::X509Certificates::X509Certificate2^ cert = gcnew System::Security::Cryptography::X509Certificates::X509Certificate2(certHandle);
+          System::Console::WriteLine(cert->ToString());
+     }
 }
