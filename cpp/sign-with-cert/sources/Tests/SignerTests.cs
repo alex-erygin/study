@@ -10,7 +10,7 @@ namespace Tests
             var signer = new SignLib.Signer();
             var cert = TestHelper.GetCertWithPrivateKey();
 
-            signer.Sign(cert, @"f:\_VM\tls.cpp");
+            signer.Sign(cert, @"f:\_VM\tls.cpp", "fdfdf");
         }
     }
 }

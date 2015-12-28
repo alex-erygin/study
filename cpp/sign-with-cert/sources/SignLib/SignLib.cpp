@@ -17,11 +17,13 @@
 #pragma comment(lib, "crypt32.lib")
 #pragma comment(lib, "Advapi32.lib")
 
-void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X509Certificate2^ cert, System::String^ signatureFileName)
+void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X509Certificate2^ cert, System::String^ sourceileName, System::String^ targetFileName)
 {
-     CMSG_SIGNER_ENCODE_INFO	SignerEncodeInfoArray[1];
+     CMSG_SIGNER_ENCODE_INFO SignerEncodeInfoArray[1];
+
      //  инициализации контекста
      BOOL should_release_ctx = FALSE;
+
      BOOL bResult = FALSE;
      DWORD keySpec = 0;
      HCRYPTPROV hCryptProv = NULL;
@@ -33,8 +35,6 @@ void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X50
      HCRYPTHASH hHash = NULL;
      bResult = CryptCreateHash(hCryptProv, CALG_MD5, 0, 0, &hHash);
      DWORD error = GetLastError();
-
-
 }
 
 void SignLib::Signer::Verify(System::Security::Cryptography::X509Certificates::X509Certificate2^ cert, System::String^ dataFileName)
