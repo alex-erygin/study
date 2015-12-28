@@ -15,16 +15,31 @@
 #define BUFSIZE 1024
 
 #pragma comment(lib, "crypt32.lib")
+#pragma comment(lib, "Advapi32.lib")
 
-void SignLib::Signer::Sign(System::String^ signerName, System::String^ fileName, System::String^ signatureFileName)
+void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X509Certificate2^ cert, System::String^ signatureFileName)
 {
-	System::Console::WriteLine("Sign");
-     Sign();
+     CMSG_SIGNER_ENCODE_INFO	SignerEncodeInfoArray[1];
+     //  инициализации контекста
+     BOOL should_release_ctx = FALSE;
+     BOOL bResult = FALSE;
+     DWORD keySpec = 0;
+     HCRYPTPROV hCryptProv = NULL;
+     PCCERT_CONTEXT context = (PCCERT_CONTEXT)(void*)cert->Handle;
+     HANDLE hDataFile = NULL; 
+
+     CryptAcquireCertificatePrivateKey(context, CRYPT_ACQUIRE_SILENT_FLAG, NULL, &hCryptProv, &keySpec, &should_release_ctx);
+     
+     HCRYPTHASH hHash = NULL;
+     bResult = CryptCreateHash(hCryptProv, CALG_MD5, 0, 0, &hHash);
+     DWORD error = GetLastError();
+
+
 }
 
-void SignLib::Signer::Verify(System::String^ signerName, System::String^ signatureFileName, System::String^ dataFileName)
+void SignLib::Signer::Verify(System::Security::Cryptography::X509Certificates::X509Certificate2^ cert, System::String^ dataFileName)
 {
-	System::Console::WriteLine("Verify");
+     System::Console::WriteLine("Verify");
 }
 
 void SignLib::Signer::Sign()
@@ -63,6 +78,7 @@ void SignLib::Signer::Sign()
      {
           System::IntPtr certHandle((void*)pCertContext);
           System::Security::Cryptography::X509Certificates::X509Certificate2^ cert = gcnew System::Security::Cryptography::X509Certificates::X509Certificate2(certHandle);
+          
           System::Console::WriteLine(cert->ToString());
      }
 }
