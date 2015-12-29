@@ -41,10 +41,11 @@ void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X50
      PCCERT_CONTEXT context = (PCCERT_CONTEXT)(void*)cert->Handle;
      HANDLE hDataFile = NULL; 
      BOOL include = TRUE;
-     
+     DWORD error= GetLastError();
 
-     CryptAcquireCertificatePrivateKey(context, CRYPT_ACQUIRE_SILENT_FLAG, NULL, &hCryptProv, &keySpec, &should_release_ctx);
+     auto result = CryptAcquireCertificatePrivateKey(context, 0, NULL, &hCryptProv, &keySpec, &should_release_ctx);
      
+     error= GetLastError();
      CMSG_STREAM_INFO stStreamInfo;
      stStreamInfo.cbContent = 0xffffffff;
      stStreamInfo.pfnStreamOutput = CmsgStreamOutputCallback;
@@ -110,27 +111,23 @@ void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X50
           NULL,                    // Inner content object ID
           &stStreamInfo);          // Stream information (not used)
 
+     error= GetLastError();
      //читаем файлег блоками
-     {
-          System::IO::Stream^ inputStream = System::IO::File::OpenRead(sourceileName);
-          int bytesRead = 0;
-          array<unsigned char>^ buffer = gcnew array<unsigned char>(8192);
+
+     System::IO::Stream^ inputStream = System::IO::File::OpenRead(sourceileName);
+     int bytesRead = 0;
+     int bufferSize = 8192;
+     array<unsigned char>^ buffer = gcnew array<unsigned char>(bufferSize);
           
-          bool lastCall = FALSE;
-          int bufferSize = bufferSize;
-          while(bytesRead = inputStream->Read(buffer, 0, bufferSize > 0))
-          {
-               lastCall = bytesRead != bufferSize;
-               pin_ptr<unsigned char> array_pin = &buffer[0];
-               unsigned char * nativeArray = array_pin;
-               CryptMsgUpdate(hMsg, nativeArray, (DWORD)bytesRead, lastCall);
-          }
+     bool lastCall = FALSE;
+          
+     while(bytesRead = inputStream->Read(buffer, 0, bufferSize) > 0)
+     {
+          lastCall = bytesRead != bufferSize;
+          pin_ptr<unsigned char> array_pin = &buffer[0];
+          unsigned char * nativeArray = array_pin;
+          CryptMsgUpdate(hMsg, nativeArray, (DWORD)bytesRead, lastCall);
      }
-
-     
-
-     size_t dwBytesRead = 0;
-     BOOL lastCall = FALSE;
 }
 
 BOOL WINAPI CmsgStreamOutputCallback(
