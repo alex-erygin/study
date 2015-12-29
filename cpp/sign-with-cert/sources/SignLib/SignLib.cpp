@@ -115,8 +115,15 @@ void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X50
           System::IO::Stream^ inputStream = System::IO::File::OpenRead(sourceileName);
           int bytesRead = 0;
           array<unsigned char>^ buffer = gcnew array<unsigned char>(8192);
-          while(bytesRead = inputStream->Read(buffer,0,8192 > 0))
+          
+          bool lastCall = FALSE;
+          int bufferSize = bufferSize;
+          while(bytesRead = inputStream->Read(buffer, 0, bufferSize > 0))
           {
+               lastCall = bytesRead != bufferSize;
+               pin_ptr<unsigned char> array_pin = &buffer[0];
+               unsigned char * nativeArray = array_pin;
+               CryptMsgUpdate(hMsg, nativeArray, (DWORD)bytesRead, lastCall);
           }
      }
 
