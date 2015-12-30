@@ -121,7 +121,7 @@ void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X50
           
      bool lastCall = FALSE;
           
-     while(bytesRead = inputStream->Read(buffer, 0, bufferSize) > 0)
+     while((bytesRead = inputStream->Read(buffer, 0, bufferSize)) > 0)
      {
           lastCall = bytesRead != bufferSize;
           pin_ptr<unsigned char> array_pin = &buffer[0];
