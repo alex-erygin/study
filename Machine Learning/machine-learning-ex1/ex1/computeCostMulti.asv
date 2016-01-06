@@ -14,9 +14,10 @@ J = 0;
 %               You should set J to the cost.
 zog = X*theta;
 zog = zog - y;
-tzog = transpose(zog);
 
-J = (1/(2*m))*(tzog*zog);
+
+
 
 % =========================================================================
+
 end
