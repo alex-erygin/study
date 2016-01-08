@@ -10,18 +10,13 @@ g = zeros(size(z));
 %               vector or scalar).
 rows = size(z,1);
 cols = size(z, 2);
-scalar = isscalar(z);
 
-if scalar == 1 
-    g(1,1) = 1/(1 + exp(-z));
-elseif scalar == 0
-    for i=1:rows
-        for k = 1:cols
-            g(i,k) = 1/(1 + exp(-z(i,k)));
-        end
-    end
+
+for i=1:rows
+   for k = 1:cols
+       g(i,k) = 1/(1 + exp(-z(i,k)));
+   end
 end
-
 
 
 
