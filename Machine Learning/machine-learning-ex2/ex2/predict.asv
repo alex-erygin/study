@@ -17,7 +17,7 @@ p = zeros(m, 1);
 H = X*theta;
 
 for i=1:m
-    p(i,1) = round(sigmoid(H(i,1)));
+    p(i,1) = round(H(i,1));
 end
 
 
