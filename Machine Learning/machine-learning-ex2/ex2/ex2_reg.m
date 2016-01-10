@@ -8,7 +8,7 @@
 %
 %  You will need to complete the following functions in this exericse:
 %
-%     sigmoid.m
+%     sigmoid.mc
 %     costFunction.m
 %     predict.m
 %     costFunctionReg.m
