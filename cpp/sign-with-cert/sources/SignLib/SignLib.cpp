@@ -11,7 +11,6 @@
 #include <wincrypt.h>
 #include <vector>
 
-
 #define CERT_PERSONAL_STORE_NAME  L"My"
 #define CERT_OTHER_PEOPLE_STORE_NAME L"AddressBook"
 #define MY_TYPE  (PKCS_7_ASN_ENCODING | X509_ASN_ENCODING)
@@ -21,10 +20,10 @@
 #pragma comment(lib, "Advapi32.lib")
 
 BOOL WINAPI CmsgStreamOutputCallback(
-  const void *pvArg,  //in
-  BYTE *pbData,       //in
-  DWORD cbData,       //in
-  BOOL fFinal         //in
+  IN const void *pvArg,  //in
+  IN BYTE *pbData,       //in
+  IN DWORD cbData,       //in
+  IN BOOL fFinal         //in
   );
 
 //прикрепленная подпись с одним подписантом.
@@ -49,7 +48,24 @@ void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X50
      CMSG_STREAM_INFO stStreamInfo;
      stStreamInfo.cbContent = 0xffffffff;
      stStreamInfo.pfnStreamOutput = CmsgStreamOutputCallback;
-     stStreamInfo.pvArg = NULL;
+
+     /*
+     HANDLE hOutMsgFile = INVALID_HANDLE_VALUE;
+     LPWSTR outPath = (LPWSTR)(void*)System::Runtime::InteropServices::Marshal::StringToHGlobalAuto(targetFileName);
+     hOutMsgFile = CreateFile(
+            outPath,
+            GENERIC_WRITE,
+            FILE_SHARE_WRITE,
+            NULL,
+            CREATE_ALWAYS,
+            FILE_ATTRIBUTE_NORMAL,
+            NULL);
+     if (INVALID_HANDLE_VALUE == hOutMsgFile)
+     {
+     }
+
+     stStreamInfo.pvArg = hOutMsgFile;
+     */
 
      //--------------------------------------------------------------------
      // Initialize the algorithm identifier structure.
@@ -105,7 +121,7 @@ void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X50
      HCRYPTMSG hMsg;
      hMsg = CryptMsgOpenToEncode(
           (X509_ASN_ENCODING | PKCS_7_ASN_ENCODING),       // Message encoding type
-          dwFlags,                       // Flags
+          dwFlags,                 // Flags
           CMSG_SIGNED,             // Message type
           &SignedMsgEncodeInfo,    // Pointer to structure
           NULL,                    // Inner content object ID
@@ -113,14 +129,14 @@ void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X50
 
      error= GetLastError();
      //читаем файлег блоками
-
+     
      System::IO::Stream^ inputStream = System::IO::File::OpenRead(sourceileName);
      int bytesRead = 0;
      int bufferSize = 8192;
      array<unsigned char>^ buffer = gcnew array<unsigned char>(bufferSize);
-          
+
      bool lastCall = FALSE;
-          
+
      while((bytesRead = inputStream->Read(buffer, 0, bufferSize)) > 0)
      {
           lastCall = bytesRead != bufferSize;
@@ -128,6 +144,10 @@ void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X50
           unsigned char * nativeArray = array_pin;
           CryptMsgUpdate(hMsg, nativeArray, (DWORD)bytesRead, lastCall);
      }
+     inputStream->Close();
+
+     CryptMsgClose(hMsg);
+     CryptReleaseContext(hCryptProv,0);
 }
 
 BOOL WINAPI CmsgStreamOutputCallback(
@@ -136,7 +156,19 @@ BOOL WINAPI CmsgStreamOutputCallback(
   DWORD cbData,       //in
   BOOL fFinal         //in
   ) {
-       return 0;
+       array<unsigned char>^ buffer = gcnew array<unsigned char>(cbData);
+       for (int i = 0; i < cbData; i++)
+       {
+            buffer[i] = pbData[i];
+       }
+
+       System::IO::Stream^ stream = System::IO::File::Open("f:\\_VM\\output.bin", System::IO::FileMode::Append);
+
+       stream->Write(buffer,0,buffer->Length);
+
+       stream->Close();
+
+       return TRUE;
 }
 
 void SignLib::Signer::Verify(System::Security::Cryptography::X509Certificates::X509Certificate2^ cert, System::String^ dataFileName)
