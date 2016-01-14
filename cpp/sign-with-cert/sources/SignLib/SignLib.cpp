@@ -11,7 +11,6 @@
 #include <wincrypt.h>
 #include <vector>
 
-
 #define CERT_PERSONAL_STORE_NAME  L"My"
 #define CERT_OTHER_PEOPLE_STORE_NAME L"AddressBook"
 #define MY_TYPE  (PKCS_7_ASN_ENCODING | X509_ASN_ENCODING)
@@ -20,46 +19,55 @@
 #pragma comment(lib, "crypt32.lib")
 #pragma comment(lib, "Advapi32.lib")
 
+///<summary>
+/// Калбак - запись содержимого сообщения.
+///</summary>
 BOOL WINAPI CmsgStreamOutputCallback(
-  const void *pvArg,  //in
-  BYTE *pbData,       //in
-  DWORD cbData,       //in
-  BOOL fFinal         //in
+  IN const void *pvArg,  //in
+  IN BYTE *pbData,       //in
+  IN DWORD cbData,       //in
+  IN BOOL fFinal         //in
   );
 
-//прикрепленная подпись с одним подписантом.
-void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X509Certificate2^ cert, System::String^ sourceileName, System::String^ targetFileName)
+
+///<summary>
+/// Подписать файл.
+///</summary>
+///<param name="cert">Сертификат для подписи.</param>
+///<param name="sourceileName">Путь к файлу, который необходимо подписать.</param>
+///<param name="targetFileName">Путь к выходному файлу.</param>
+void SignLib::Signer::Sign(
+     System::Security::Cryptography::X509Certificates::X509Certificate2^ cert, 
+     System::String^ sourceileName, 
+     System::String^ targetFileName)
 {
-     CMSG_SIGNER_ENCODE_INFO SignerEncodeInfoArray[1];
-
-     //  инициализации контекста
-     BOOL should_release_ctx = FALSE;
-
-     BOOL bResult = FALSE;
+     CMSG_SIGNER_ENCODE_INFO signer[1];
+     BOOL shouldReleaseCryptoContext = FALSE;
+     
      DWORD keySpec = 0;
      HCRYPTPROV hCryptProv = NULL;
      PCCERT_CONTEXT context = (PCCERT_CONTEXT)(void*)cert->Handle;
      HANDLE hDataFile = NULL; 
      BOOL include = TRUE;
      DWORD error= GetLastError();
-
-     auto result = CryptAcquireCertificatePrivateKey(context, 0, NULL, &hCryptProv, &keySpec, &should_release_ctx);
+     //получили контекст криптопровайдера.
+     auto result = CryptAcquireCertificatePrivateKey(context, 0, NULL, &hCryptProv, &keySpec, &shouldReleaseCryptoContext);
      
-     error= GetLastError();
-     CMSG_STREAM_INFO stStreamInfo;
-     stStreamInfo.cbContent = 0xffffffff;
-     stStreamInfo.pfnStreamOutput = CmsgStreamOutputCallback;
-     stStreamInfo.pvArg = NULL;
+     //Настраиваем CMSG_STREAM_INFO.
+     CMSG_STREAM_INFO streamInfo;
+     //используем BER-кодировку.
+     streamInfo.cbContent = 0xffffffff;
+     //указываем калбэк.
+     streamInfo.pfnStreamOutput = CmsgStreamOutputCallback;
 
-     //--------------------------------------------------------------------
-     // Initialize the algorithm identifier structure.
-     const char* oid = "1.2.643.2.2.9";
+     // Инициализируем алгоритм хеширования.
+     // todo: Алгоритм подписи надо вытаскивать из сертификата или передавать как параметр.
+     char* oid = "1.2.643.2.2.9";
      CRYPT_ALGORITHM_IDENTIFIER HashAlgorithm;
      memset(&HashAlgorithm, 0, sizeof(HashAlgorithm)); // Init. to zero.
-     HashAlgorithm.pszObjId = (char*)oid;	    // Initialize the necessary member.
+     HashAlgorithm.pszObjId = oid;    // Initialize the necessary member.
 
-     //--------------------------------------------------------------------
-     // Initialize the CMSG_SIGNER_ENCODE_INFO structure.
+     // Заполняем информацию о подписанте (пока он только один).
      CMSG_SIGNER_ENCODE_INFO	SignerEncodeInfo;
      memset(&SignerEncodeInfo, 0, sizeof(CMSG_SIGNER_ENCODE_INFO));
      SignerEncodeInfo.cbSize = sizeof(CMSG_SIGNER_ENCODE_INFO);
@@ -68,15 +76,9 @@ void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X50
      SignerEncodeInfo.dwKeySpec = keySpec;
      SignerEncodeInfo.HashAlgorithm = HashAlgorithm;
      SignerEncodeInfo.pvHashAuxInfo = NULL;
+     signer[0] = SignerEncodeInfo;
 
-     //--------------------------------------------------------------------
-     // Create an array of one. Note: Currently, there can be only one
-     // signer.
-     SignerEncodeInfoArray[0] = SignerEncodeInfo;
-
-     //--------------------------------------------------------------------
-     // Initialize the CMSG_SIGNED_ENCODE_INFO structure.
-
+     // Инициализируем блоб
      CERT_BLOB SignerCertBlob;
      SignerCertBlob.cbData = context->cbCertEncoded;
      SignerCertBlob.pbData = context->pbCertEncoded;
@@ -88,14 +90,40 @@ void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X50
      memset(&SignedMsgEncodeInfo, 0, sizeof(CMSG_SIGNED_ENCODE_INFO));
      SignedMsgEncodeInfo.cbSize = sizeof(CMSG_SIGNED_ENCODE_INFO);
      SignedMsgEncodeInfo.cSigners = 1;
-     SignedMsgEncodeInfo.rgSigners = SignerEncodeInfoArray;
+     SignedMsgEncodeInfo.rgSigners = signer;
      SignedMsgEncodeInfo.cCertEncoded = include;
      PCCERT_CHAIN_CONTEXT chainContext;
-     CERT_BLOB SignerCertBlobArray[1];
-     SignerCertBlobArray[0].cbData = context->cbCertEncoded;
-     SignerCertBlobArray[0].pbData = context->pbCertEncoded;
+
+     std::vector<CERT_BLOB> SignerCertBlobArray;
+     /*заполняем цепочку сертификатов*/
+     CERT_ENHKEY_USAGE        EnhkeyUsage;
+     EnhkeyUsage.cUsageIdentifier = 0;
+     EnhkeyUsage.rgpszUsageIdentifier=NULL;
+
+     CERT_USAGE_MATCH         CertUsage;
+     CertUsage.dwType = USAGE_MATCH_TYPE_AND;
+     CertUsage.Usage  = EnhkeyUsage;
+
+     CERT_CHAIN_PARA          ChainPara;
+     ChainPara.cbSize = sizeof(CERT_CHAIN_PARA);
+     ChainPara.RequestedUsage=CertUsage;
+
+     //строим цепочку
+     CertGetCertificateChain(NULL, context, NULL, NULL, &ChainPara, 0, 0, &chainContext);
+     SignedMsgEncodeInfo.cCertEncoded = chainContext->rgpChain[0]->cElement - 1;
+     SignerCertBlobArray.resize(SignedMsgEncodeInfo.cCertEncoded);
+
+     for( DWORD i = 0; i < SignedMsgEncodeInfo.cCertEncoded; i++ )
+     {
+          SignerCertBlobArray[i].cbData = chainContext->rgpChain[0]->rgpElement[i]->pCertContext->cbCertEncoded;
+          SignerCertBlobArray[i].pbData = chainContext->rgpChain[0]->rgpElement[i]->pCertContext->pbCertEncoded;
+     }
 
      SignedMsgEncodeInfo.rgCertEncoded = &SignerCertBlobArray[0];
+     SignedMsgEncodeInfo.rgCrlEncoded = NULL;
+
+     if( SignerCertBlobArray.size() )
+          SignedMsgEncodeInfo.rgCertEncoded = &SignerCertBlobArray.at(0);
      SignedMsgEncodeInfo.rgCrlEncoded = NULL;
 
      DWORD dwFlags = 0;
@@ -105,22 +133,22 @@ void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X50
      HCRYPTMSG hMsg;
      hMsg = CryptMsgOpenToEncode(
           (X509_ASN_ENCODING | PKCS_7_ASN_ENCODING),       // Message encoding type
-          dwFlags,                       // Flags
+          dwFlags,                 // Flags
           CMSG_SIGNED,             // Message type
           &SignedMsgEncodeInfo,    // Pointer to structure
           NULL,                    // Inner content object ID
-          &stStreamInfo);          // Stream information (not used)
+          &streamInfo);          // Stream information (not used)
 
      error= GetLastError();
      //читаем файлег блоками
-
+     
      System::IO::Stream^ inputStream = System::IO::File::OpenRead(sourceileName);
      int bytesRead = 0;
      int bufferSize = 8192;
      array<unsigned char>^ buffer = gcnew array<unsigned char>(bufferSize);
-          
-     bool lastCall = FALSE;
-          
+
+     BOOL lastCall = FALSE;
+
      while((bytesRead = inputStream->Read(buffer, 0, bufferSize)) > 0)
      {
           lastCall = bytesRead != bufferSize;
@@ -128,6 +156,10 @@ void SignLib::Signer::Sign(System::Security::Cryptography::X509Certificates::X50
           unsigned char * nativeArray = array_pin;
           CryptMsgUpdate(hMsg, nativeArray, (DWORD)bytesRead, lastCall);
      }
+     inputStream->Close();
+
+     CryptMsgClose(hMsg);
+     CryptReleaseContext(hCryptProv,0);
 }
 
 BOOL WINAPI CmsgStreamOutputCallback(
@@ -136,51 +168,22 @@ BOOL WINAPI CmsgStreamOutputCallback(
   DWORD cbData,       //in
   BOOL fFinal         //in
   ) {
-       return 0;
+       array<unsigned char>^ buffer = gcnew array<unsigned char>(cbData);
+       for (int i = 0; i < cbData; i++)
+       {
+            buffer[i] = pbData[i];
+       }
+       //TODO: передавать хендл на файл через *pvArg, использовать с++ для записи в файл.
+       System::IO::Stream^ stream = System::IO::File::Open("f:\\_VM\\output.bin", System::IO::FileMode::Append);
+
+       stream->Write(buffer,0,buffer->Length);
+
+       stream->Close();
+
+       return TRUE;
 }
 
 void SignLib::Signer::Verify(System::Security::Cryptography::X509Certificates::X509Certificate2^ cert, System::String^ dataFileName)
 {
      System::Console::WriteLine("Verify");
-}
-
-void SignLib::Signer::Sign()
-{
-     HCERTSTORE hStorehandle = NULL;
-     PCCERT_CONTEXT pSignerCert = NULL;
-     HCRYPTPROV hCryptoProv = NULL;
-     DWORD dsKeySpec = 0;
-     HCRYPTHASH hHash = NULL;
-     HANDLE hDataFile = NULL;
-     BOOL bResult = FALSE;
-     BYTE rgbFile[BUFSIZE];
-     DWORD cbRead = 0;
-     DWORD dwSigLen = 0;
-     BYTE* pbSignature = NULL;
-     HANDLE hSignatureFile = NULL;
-     DWORD lpNumberOfBytesWritten = 0;
-
-     System::Console::WriteLine("Signing");
-
-     //open certificate store
-     System::Console::WriteLine("Открываем хранилище сертификатов");
-     hStorehandle = ::CertOpenStore(
-          CERT_STORE_PROV_SYSTEM,
-          0,
-          NULL,
-          CERT_SYSTEM_STORE_CURRENT_USER, CERT_PERSONAL_STORE_NAME);
-
-     if (NULL == hStorehandle)
-     {
-          throw gcnew System::Exception("Не удалось открыть хранилище сертификатов");
-     }
-
-     PCCERT_CONTEXT pCertContext = NULL;
-     while( pCertContext = CertEnumCertificatesInStore (hStorehandle, pCertContext) )
-     {
-          System::IntPtr certHandle((void*)pCertContext);
-          System::Security::Cryptography::X509Certificates::X509Certificate2^ cert = gcnew System::Security::Cryptography::X509Certificates::X509Certificate2(certHandle);
-          
-          System::Console::WriteLine(cert->ToString());
-     }
 }

@@ -2,16 +2,28 @@
 
 #pragma once
 
-namespace SignLib {
-
-	public ref class Signer
-	{
-		// TODO: здесь следует добавить свои методы для этого класса.
-	public:
+namespace SignLib 
+{
+     ///<summary>
+     /// Подписывает файлы и проверяет подпись файла.
+     ///</summary>
+     public ref class Signer
+     {
+     public:
+          ///<summary>
+          /// Подписать файл.
+          ///</summary>
+          ///<param name="cert">Сертификат для подписи.</param>
+          ///<param name="sourceileName">Путь к файлу, который необходимо подписать.</param>
+          ///<param name="sourceileName">Путь к выходному файлу.</param>
           void Sign(System::Security::Cryptography::X509Certificates::X509Certificate2^ cert, System::String^ sourceileName, System::String^ targetFileName);
-		void Verify(System::Security::Cryptography::X509Certificates::X509Certificate2^ cert, System::String^ dataFileName);
 
-     private:
-          void Sign();
-	};
+          ///<summary>
+          /// Проверить подпись.
+          ///</summary>
+          ///<param name="cert">Сертификат для подписи.</param>
+          ///<param name="sourceileName">Путь к файлу, который необходимо подписать.</param>
+          ///<param name="sourceileName">Путь к выходному файлу.</param>
+          void Verify(System::Security::Cryptography::X509Certificates::X509Certificate2^ cert, System::String^ dataFileName);
+     };
 }

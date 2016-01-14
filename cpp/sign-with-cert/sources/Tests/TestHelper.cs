@@ -1,4 +1,6 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.IO;
+using System.Security;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Tests
 {
@@ -14,7 +16,7 @@ namespace Tests
         /// Получить сертификат с закрытым ключом.
         /// </summary>
         /// <returns>Сертификат с закрытым ключом.</returns>
-        public static X509Certificate2 GetCertWithPrivateKey()
+        public static X509Certificate2 GetCertificateWithPrivateKey()
         {
             X509Certificate2 certificate = FindCertificate(
                 knownCertificateWithPrivateKeyThumbprint, StoreName.My, StoreLocation.CurrentUser);
