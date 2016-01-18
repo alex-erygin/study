@@ -18,6 +18,7 @@
 #include <unknown.h>
 #include <uni_call.h>
 #include <uni_guiddef.h>
+#include "IFile.h"
 
 namespace cyclope {
 	namespace crypto {
@@ -29,6 +30,13 @@ namespace cyclope {
 
 	} //namespace cyclope
 } //namespace crypto
+
+CYCLOPE_API int ITCSCALL CreateSigner(
+	cyclope::crypto::IFile inputFile,
+	cyclope::crypto::IFile outputFile,
+	unsigned char* cn,
+	unsigned char* serialNumber
+	)
 
 #endif /* __PROCESSING_H__ */
 

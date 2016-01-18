@@ -12,6 +12,7 @@ namespace FileIo
         /// Прочесть данные в  буфер.
         /// </summary>
         /// <param name="buffer">Буфер, в который будут считаны данные.</param>
+        /// <param name="bufferSize">Размер массива.</param>
         /// <param name="index">Индекс, с которого данные будут записаны в буфер.</param>
         /// <param name="count">Количество байт, которые необходимо считать.</param>
         /// <returns>Количество фактически считанных байт.</returns>
@@ -19,6 +20,7 @@ namespace FileIo
         [PreserveSig]
         int Read(
             [In][Out][MarshalAs(UnmanagedType.LPArray, SizeParamIndex=2)] byte[] buffer, 
+            [In] int bufferSize,
             [In] int index, 
             [In] int count);
 
@@ -26,12 +28,14 @@ namespace FileIo
         /// Записать буффер в файл.
         /// </summary>
         /// <param name="buffer">Буффер.</param>
+        /// <param name="bufferSize">Размер буфера.</param>
         /// <param name="index">Индекс в буффере, начиная с которого данные должны быть записаны.</param>
         /// <param name="count">Количество байт, которые необходимо записать в файл.</param>
         [MethodImpl(MethodImplOptions.InternalCall, MethodCodeType = MethodCodeType.Runtime)]
         [PreserveSig]
         void Write(
             byte[] buffer,
+            int bufferSize,
             int index,
             int count
             );
