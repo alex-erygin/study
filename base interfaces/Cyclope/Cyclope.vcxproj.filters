@@ -19,6 +19,12 @@
     <Filter Include="libsigner">
       <UniqueIdentifier>{18e5fba6-fd09-445e-bed4-f8b11804a46d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="libsigner\src">
+      <UniqueIdentifier>{0cb328c9-a363-4824-81d4-c79d88a1232b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="libsigner\src\win">
+      <UniqueIdentifier>{8d055d9d-631f-409d-a46e-9c0399c1c579}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -39,13 +45,27 @@
     <ClInclude Include="IFile.h">
       <Filter>libsigner</Filter>
     </ClInclude>
+    <ClInclude Include="signer_impl.h">
+      <Filter>libsigner\src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
     <ClCompile Include="dllmain.cpp">
-      <Filter>Файлы исходного кода</Filter>
+      <Filter>libsigner\src\win</Filter>
     </ClCompile>
+    <ClCompile Include="signer.cpp">
+      <Filter>libsigner\src</Filter>
+    </ClCompile>
+    <ClCompile Include="signer_impl.cpp">
+      <Filter>libsigner\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cyclope.def">
+      <Filter>libsigner\src\win</Filter>
+    </None>
   </ItemGroup>
 </Project>

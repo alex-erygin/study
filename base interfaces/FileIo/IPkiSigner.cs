@@ -7,7 +7,7 @@ namespace FileIo
     /// Подписывает файлы с помощью одного или нескольких сертификатов.
     /// </summary>
     [ComImport]
-    [Guid("A042B1E2-6984-4F4A-A4D7-7612936E9849")]
+    [Guid("3180a18e-07d5-403a-9e5c-2711527a7ee7")]
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
     public interface IPkiSigner
     {
