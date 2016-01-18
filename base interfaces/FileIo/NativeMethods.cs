@@ -1,7 +1,15 @@
-﻿namespace FileIo
+﻿using System.Runtime.InteropServices;
+
+namespace FileIo
 {
-    internal static class NativeMethods
+    public static class SignerFactory
     {
-        public static extern int CreateSigner(IFile inputFile, IFile outputFile, string CN, string serialNumber);
+        [DllImport("Cyclope", CallingConvention = CallingConvention.StdCall)]
+        public static extern int CreateSigner(
+            [MarshalAs(UnmanagedType.Interface)]IFile inputFile, 
+            [MarshalAs(UnmanagedType.Interface)]IFile outputFile, 
+            [MarshalAs(UnmanagedType.LPStr)] string CN,
+            [MarshalAs(UnmanagedType.LPStr)] string serialNumber,
+            [MarshalAs(UnmanagedType.Interface)] out ISigner signer);
     }
 }

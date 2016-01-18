@@ -38,7 +38,7 @@ CYCLOPE_API int ITCSCALL CreateSigner(
 	unsigned char* cn,
 	unsigned char* serialNumber,
 	cyclope::crypto::ISigner** signer
-	)
+	);
 
 #endif /* __PROCESSING_H__ */
 

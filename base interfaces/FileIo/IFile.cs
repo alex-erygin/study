@@ -40,4 +40,17 @@ namespace FileIo
             int count
             );
     }
+
+    public class File : IFile
+    {
+        public int Read(byte[] buffer, int bufferSize, int index, int count)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Write(byte[] buffer, int bufferSize, int index, int count)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
 }

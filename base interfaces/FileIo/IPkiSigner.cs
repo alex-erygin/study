@@ -9,7 +9,7 @@ namespace FileIo
     [ComImport]
     [Guid("3180a18e-07d5-403a-9e5c-2711527a7ee7")]
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-    public interface IPkiSigner
+    public interface ISigner
     {
         /// <summary>
         /// Подписать.

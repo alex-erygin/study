@@ -22,7 +22,7 @@ namespace cyclope {
 
 		}
 
-		int __stdcall CSigner::Sign() {
+		int ITCSCALL CSigner::Sign() {
 			unsigned char buffer[100];
 			_inputFile->Read(buffer, 100, 0, 100);
 			_outputFile->Write(buffer, 100, 0, 100);
