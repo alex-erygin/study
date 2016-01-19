@@ -11,7 +11,6 @@
 #include <atomic>
 #include <limits>
 #include <cassert>
-#include <unknown.h>
 
 namespace infotecs {
 	namespace common {
@@ -52,7 +51,7 @@ namespace infotecs {
 					{
 						// Double release error. Set a breakpoint here.
 						assert(false);
-						return std::numeric_limits<unsigned long>::max();
+						return ULONG_MAX;
 					}
 
 					if (ref == 0)

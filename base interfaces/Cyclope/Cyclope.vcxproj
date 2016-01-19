@@ -71,8 +71,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>s:\TDCode\base_interfaces\trunk\base_interfaces\include\;$(IncludePath)</IncludePath>
-    <OutDir>C:\Projects\Study\base interfaces\out\Debug</OutDir>
+    <IncludePath>s:\TDCode\base_interfaces\trunk\base_interfaces\include;$(IncludePath)</IncludePath>
+    <OutDir>C:\Projects\Study\base interfaces\out\Debug\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -85,9 +85,8 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
-      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;CYCLOPE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -148,14 +147,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="IFile.h" />
     <ClInclude Include="signer.h" />
+    <ClInclude Include="signer_fwd.h" />
     <ClInclude Include="signer_impl.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
     <ClInclude Include="unknown_tmpl.h" />
   </ItemGroup>
   <ItemGroup>
@@ -175,7 +170,6 @@
     </ClCompile>
     <ClCompile Include="signer.cpp" />
     <ClCompile Include="signer_impl.cpp" />
-    <ClCompile Include="stdafx.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cyclope.def" />

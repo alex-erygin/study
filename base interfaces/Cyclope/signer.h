@@ -15,18 +15,18 @@
 #  endif
 #endif
 
-#include <unknown.h>
-#include <uni_call.h>
-#include <uni_guiddef.h>
+#include <uni_thread.h>
+//#include <unknown.h>
+//#include <uni_call.h>
+//#include <uni_guiddef.h>
 #include "IFile.h"
-#include "signer_impl.h"
 
 namespace cyclope {
 	namespace crypto {
 
 		struct ISigner : public IUnknown
 		{
-			virtual int ITCSCALL Sign();
+			virtual int ITCSCALL Sign()=0;
 		};
 
 	} //namespace cyclope
@@ -35,8 +35,8 @@ namespace cyclope {
 CYCLOPE_API int ITCSCALL CreateSigner(
 	cyclope::crypto::IFile* inputFile,
 	cyclope::crypto::IFile* outputFile,
-	unsigned char* cn,
-	unsigned char* serialNumber,
+	char* cn,
+	char* serialNumber,
 	cyclope::crypto::ISigner** signer
 	);
 

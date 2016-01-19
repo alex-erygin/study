@@ -2,7 +2,6 @@
 #include "signer.h"
 #include "signer_impl.h"
 
-
 #ifndef _WIN32
 /// {00000000-0000-0000-C000-000000000046}
 const infotecs::base_interfaces::guids::INFOTECS_GUID IID_IUnknown =
@@ -10,21 +9,20 @@ const infotecs::base_interfaces::guids::INFOTECS_GUID IID_IUnknown =
 #endif
 
 int ITCSCALL CreateSigner(
-	cyclope::crypto::IFile* inputFile,
-	cyclope::crypto::IFile* outputFile,
-	unsigned char* cn,
-	unsigned char* serialNumber,
-	cyclope::crypto::ISigner** signer
-	)
+	cyclope::crypto::IFile * inputFile, 
+	cyclope::crypto::IFile * outputFile, 
+	char * cn, 
+	char * serialNumber, 
+	cyclope::crypto::ISigner ** signer)
 {
-	try 
+	try
 	{
-		if (!signer) 
+		if (!signer)
 		{
 			return 0;
 		}
 
-		*signer = new cyclope::impl::CSigner(inputFile, outputFile, cn, serialNumber);
+		*signer = new cyclope::crypto::impl::CSigner(inputFile, outputFile, cn, serialNumber);
 		if (*signer) {
 			return 1;
 		}
