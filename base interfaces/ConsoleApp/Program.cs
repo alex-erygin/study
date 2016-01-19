@@ -12,6 +12,7 @@ namespace ConsoleApp
         {
             ISigner signer;
             SignerFactory.CreateSigner(new File(), new File(), "Haba", "Haba", out signer);
+            signer.Sign();
         }
     }
 }
