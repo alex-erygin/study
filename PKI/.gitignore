@@ -1,0 +1,10 @@
+samples/packages/xunit.extensibility.execution.2.1.0/
+samples/packages/xunit.assert.2.1.0/
+samples/packages/xunit.abstractions.2.0.0/
+samples/packages/xunit.core.2.1.0/
+samples/packages/xunit.extensibility.core.2.1.0/
+samples/Source/Tests/obj/
+samples/Source/Tests/bin/
+*.nupkg
+samples/Source/Tests/storage/cert.pfx
+*.cache
