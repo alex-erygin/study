@@ -226,3 +226,4 @@ cpp/sign-with-cert/packages/xunit.1.9.2/
 cpp/p7/packages/xunit.1.9.2/
 cpp/p7/Out(Configuration)/MyLib$/MyLib.dll
 telegram/packages/
+telegram/source/huliobot/SecretSettings.xml
