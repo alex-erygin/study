@@ -38,17 +38,31 @@ namespace huliobot
         {
         }
 
-        private void OnFm(Api api, Update update)
+        private async void OnFm(Api api, Update update)
         {
             //get rep on stackoverflow
             StringBuilder response = new StringBuilder();
 
-            StackOverflowRep(response).Wait();
-            Hacker(response).Wait();
+            await StackOverflowRep(response);
+            await Hacker(response);
+            await Nuget(response);
 
-            api.SendTextMessage(update.Message.Chat.Id, response.ToString()).Wait();
+            await api.SendTextMessage(update.Message.Chat.Id, response.ToString());
         }
 
+        private static async Task Nuget(StringBuilder response)
+        {
+            HttpClient client = new HttpClient();
+            string page = await client.GetStringAsync(@"https://www.nuget.org/profiles/AlexErygin");
+            Regex regex = new Regex(@"<p\s+class=""stat-number"">(?<rep>\d{1,6})</p>");
+            MatchCollection matches = regex.Matches(page);
+            Match match = matches.Cast<Match>().LastOrDefault(x => x.Success);
+            if (match != null)
+            {
+                response.AppendLine($"Nuget: {match.Groups["rep"].Value}");
+            }
+        }
+        
         private static async Task StackOverflowRep(StringBuilder response)
         {
             HttpClient client = new HttpClient();
