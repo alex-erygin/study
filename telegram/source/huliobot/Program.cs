@@ -1,4 +1,5 @@
-﻿using Topshelf;
+﻿using System;
+using Topshelf;
 
 // ReSharper disable All
 
@@ -19,7 +20,7 @@ namespace huliobot
                     s.WhenStarted(bot => bot.Start());
                     s.WhenStopped(bot => bot.Stop());
                 });
-
+                x.SetStartTimeout(TimeSpan.FromSeconds(3));
                 x.StartAutomatically();
                 x.SetDescription("Hulio bot");
                 x.SetDisplayName("Hulio");

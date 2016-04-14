@@ -4,11 +4,13 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 using System.Threading.Tasks;
 using NLog;
 using SafeConfig;
 using Telegram.Bot;
 using Telegram.Bot.Types;
+using Timer = System.Timers.Timer;
 
 namespace huliobot
 {
@@ -22,6 +24,8 @@ namespace huliobot
         private ConfigManager configManager;
         private int offset;
 
+        private Thread workingThread;
+
         public HulioBot()
         {
             commandHandlers[Commands.Statistics] = OnFm;
@@ -31,11 +35,60 @@ namespace huliobot
 
         public void Start()
         {
-            Run().Wait();
+            Logger.Debug("Служба запущена");
+            workingThread = new Thread(()=> Run().Wait());
+            workingThread.Start();
         }
 
         public void Stop()
         {
+            Logger.Debug("Служба остановлена");
+            workingThread.Abort();
+        }
+
+
+        public async Task Run()
+        {
+            try
+            {
+                string token = SettingsStore.Tokens["hulio-token"];
+                Api bot = new Api(token);
+                User me = await bot.GetMe();
+                Logger.Debug($"{me.Username} на связи");
+
+                int offset = configManager.Load().Get<int>("offset");
+                while (true)
+                {
+                    Update[] updates = await bot.GetUpdates(offset);
+
+                    foreach (Update update in updates)
+                    {
+                        switch (update.Message.Type)
+                        {
+                            case MessageType.TextMessage:
+                            {
+                                if (commandHandlers.ContainsKey(update.Message.Text))
+                                {
+                                    commandHandlers[update.Message.Text](bot, update);
+                                }
+                            }
+                                break;
+                        }
+
+                        offset = update.Id + 1;
+                    }
+                    configManager.Set(nameof(offset), offset).Save();
+                    await Task.Delay(1000);
+                }
+            }
+            catch (ThreadAbortException)
+            {
+            }
+            catch (Exception ex)
+            {
+                Logger.Error(ex);
+                throw;
+            }
         }
 
         private async void OnFm(Api api, Update update)
@@ -89,46 +142,6 @@ namespace huliobot
             }
         }
 
-        public async Task Run()
-        {
-            try
-            {
-                string token = SettingsStore.Tokens["hulio-token"];
-                Api bot = new Api(token);
-                User me = await bot.GetMe();
-                Logger.Debug($"{me.Username} на связи");
-
-                int offset = configManager.Load().Get<int>("offset");
-                while (true)
-                {
-                    Update[] updates = await bot.GetUpdates(offset);
-
-                    foreach (Update update in updates)
-                    {
-                        switch (update.Message.Type)
-                        {
-                            case MessageType.TextMessage:
-                            {
-                                if (commandHandlers.ContainsKey(update.Message.Text))
-                                {
-                                    commandHandlers[update.Message.Text](bot, update);
-                                }
-                            }
-                                break;
-                        }
-
-                        offset = update.Id + 1;
-                    }
-                    configManager.Set(nameof(offset), offset).Save();
-                    await Task.Delay(1000);
-                }
-            }
-            catch (Exception ex)
-            {
-                Logger.Error(ex);
-                throw;
-            }
-        }
 
         private class Commands
         {
