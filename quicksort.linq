@@ -1,12 +1,17 @@
-<Query Kind="Program" />
+<Query Kind="Program">
+  <NuGetReference>Benchmark.It</NuGetReference>
+  <Namespace>BenchmarkIt</Namespace>
+</Query>
 
 void Main()
 {
 	var array = new int[] { 4, 6, 7, 3, 1, 2, 4, 77, 85, 2};
-	array.Dump();
-	
-	QuickSort(array, 0, array.Length - 1);
-	array.Dump();
+	var array2 = new int[] { 4, 6, 7, 3, 1, 2, 4, 77, 85, 2};
+
+	BenchmarkIt.Benchmark.This("Array.Sort", ()=> Array.Sort(array2))
+		.Against.This($"Quick sort array of {array.Length} items", ()=> QuickSort(array, 0, array.Length - 1))
+		.For(10).Iterations()
+		.PrintComparison();
 }
 
 static void QuickSort(int[] a, int l, int r) {
@@ -36,5 +41,3 @@ static void QuickSort(int[] a, int l, int r) {
 	}
 
 }
-
-// Define other methods and classes here
