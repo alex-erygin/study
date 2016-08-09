@@ -1,0 +1,18 @@
+{
+  "name": "react_express_app",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Aleksandr Erygin"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/alex-erygin/study",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
