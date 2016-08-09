@@ -18,10 +18,13 @@
   "homepage": "https://github.com/alex-erygin/react-express-app#readme",
   "dependencies": {
     "browser-sync": "^2.14.0",
+    "browserify": "^13.1.0",
     "ejs": "^2.5.1",
     "express": "^4.14.0",
     "gulp": "^3.9.1",
     "gulp-live-server": "0.0.30",
-    "react": "^15.3.0"
+    "react": "^15.3.0",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
