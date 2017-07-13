@@ -18,6 +18,6 @@
 
 - (void) sayHello;
 
-+ (id) person;
+- (void) saySomething:(NSString*)greeting;
 
 @end

@@ -11,8 +11,12 @@
 
 @implementation XYZPerson
 
-- (void) sayHello() {
+- (void) sayHello {
     NSLog(@"Hello!");
+}
+
+- (void) saySomething:(NSString *)greeting {
+    NSLog(@"%@", greeting);
 }
 
 @end
