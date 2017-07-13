@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0795E08B1F17C0D800899989 /* XYZShootingPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = 0795E08A1F17C0D800899989 /* XYZShootingPerson.m */; };
 		EA9C3CBE1F151DD700DF198B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9C3CBD1F151DD700DF198B /* main.m */; };
 		EA9C3CC51F151E7800DF198B /* XYZPerson.h in Sources */ = {isa = PBXBuildFile; fileRef = EA9C3CC41F151E7800DF198B /* XYZPerson.h */; };
 		EA9C3CC71F1521A900DF198B /* XYZPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = EA9C3CC61F1521A900DF198B /* XYZPerson.m */; };
@@ -25,6 +26,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0795E0891F17BE5900899989 /* XYZShoutingPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYZShoutingPerson.h; sourceTree = "<group>"; };
+		0795E08A1F17C0D800899989 /* XYZShootingPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYZShootingPerson.m; sourceTree = "<group>"; };
 		EA9C3CBA1F151DD700DF198B /* ex1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ex1; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA9C3CBD1F151DD700DF198B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EA9C3CC41F151E7800DF198B /* XYZPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYZPerson.h; sourceTree = "<group>"; };
@@ -64,6 +67,8 @@
 				EA9C3CBD1F151DD700DF198B /* main.m */,
 				EA9C3CC41F151E7800DF198B /* XYZPerson.h */,
 				EA9C3CC61F1521A900DF198B /* XYZPerson.m */,
+				0795E0891F17BE5900899989 /* XYZShoutingPerson.h */,
+				0795E08A1F17C0D800899989 /* XYZShootingPerson.m */,
 			);
 			path = ex1;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 				EA9C3CC71F1521A900DF198B /* XYZPerson.m in Sources */,
 				EA9C3CC51F151E7800DF198B /* XYZPerson.h in Sources */,
 				EA9C3CBE1F151DD700DF198B /* main.m in Sources */,
+				0795E08B1F17C0D800899989 /* XYZShootingPerson.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -256,6 +262,7 @@
 				EA9C3CC31F151DD700DF198B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#include "XYZPerson.h"
+#include "XYZShoutingPerson.h"
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
-        XYZPerson *poc = [[XYZPerson alloc] init];
-        [poc sayHello];
-        [poc saySomething:@"!"];
+        XYZShoutingPerson *shooter = [[XYZShoutingPerson alloc] init];
+        [shooter saySomething:@"Tobi zvizda"];
     }
     return 0;
 }
