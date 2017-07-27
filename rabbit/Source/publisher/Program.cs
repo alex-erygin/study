@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Threading;
 using RabbitMQ.Client;
 
@@ -10,16 +11,13 @@ namespace publisher
 
         static void Main(string[] args)
         {
-            var publisherId = Guid.NewGuid();
-            Console.WriteLine("Я - отправитель {0}", publisherId);
-
-            var factory = new ConnectionFactory { HostName = "localhost" };
+            var factory = new ConnectionFactory { HostName = "192.168.0.10", UserName = "odmen", Password = "123456789"};
             using (var connection = factory.CreateConnection())
             {
                 using (var channel = connection.CreateModel())
                 {
                     channel.QueueDeclare(QueueName, false, false, false, null);
-                    var msg = publisherId.ToByteArray();
+                    var msg = Encoding.UTF8.GetBytes("Превед!");
 
                     for (;;)
                     {
