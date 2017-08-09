@@ -10,7 +10,7 @@
 
 @interface XYZPerson : NSObject
 
-@property NSString *firstName;
+@property (copy) NSString *firstName;
 
 @property NSString *lastName;
 
@@ -19,5 +19,11 @@
 - (void) sayHello;
 
 - (void) saySomething:(NSString*)greeting;
+
+- (id) initWithFirstName: (NSString *)aFirstName lastName:(NSString *)aLastName;
+
+- (id) initWithFirstName: (NSString *)aFirstName lastName: (NSString *)aLastName andBirthDate: (NSDate *)aBirthDate;
+
++ (XYZPerson*) person;
 
 @end

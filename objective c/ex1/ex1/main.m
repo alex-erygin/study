@@ -14,6 +14,13 @@ int main(int argc, const char * argv[]) {
         // insert code here...
         XYZShoutingPerson *shooter = [[XYZShoutingPerson alloc] init];
         [shooter saySomething:@"Tobi zvizda"];
+        
+        NSMutableString* firstName = [[NSMutableString alloc] initWithString:@"Дядька"];
+        XYZPerson* man = [[XYZPerson alloc] initWithFirstName:firstName lastName:@"Смит"];
+        
+        [firstName appendString:@" а может быть и тетька"];
+        
+        [man sayHello];
     }
     return 0;
 }
