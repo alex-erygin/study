@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbfbb73a-8cb8-47fd-8a75-12f0eb72a08f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Benchmark.cs" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/RNG.cs" afterPath="$PROJECT_DIR$/Numeric.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.idea.UnitTestProject/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.UnitTestProject/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,18 +15,22 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RNG.cs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/RNG.cs">
+      <file leaf-file-name="Numeric.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Numeric.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+            <state relative-caret-position="356">
+              <caret line="39" column="13" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="45" selection-end-column="33" />
               <folding>
-                <marker date="1504797790000" expanded="false" signature="6:57" ph="..." />
-                <marker date="1504797790000" expanded="true" signature="84:671" ph="{...}" />
-                <marker date="1504797790000" expanded="true" signature="107:669" ph="{...}" />
-                <marker date="1504797790000" expanded="true" signature="175:663" ph="{...}" />
-                <marker date="1504797790000" expanded="true" signature="393:653" ph="{...}" />
-                <marker date="1504797790000" expanded="true" signature="509:639" ph="{...}" />
+                <marker date="1504799348000" expanded="false" signature="6:57" ph="..." />
+                <marker date="1504799348000" expanded="true" signature="84:1114" ph="{...}" />
+                <marker date="1504799348000" expanded="true" signature="111:1112" ph="{...}" />
+                <marker date="1504799348000" expanded="true" signature="126:212" ph="/// RNG -Линейный конгруэнтный генератор. ... " />
+                <marker date="1504799348000" expanded="true" signature="274:721" ph="{...}" />
+                <marker date="1504799348000" expanded="true" signature="492:711" ph="{...}" />
+                <marker date="1504799348000" expanded="true" signature="581:697" ph="{...}" />
+                <marker date="1504799348000" expanded="true" signature="731:806" ph="/// Наибольший общий делитель. ... " />
+                <marker date="1504799348000" expanded="true" signature="847:1106" ph="{...}" />
+                <marker date="1504799348000" expanded="true" signature="944:1049" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -54,7 +59,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Benchmark.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/RNG.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Numeric.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -62,6 +67,7 @@
         <option value="$PROJECT_DIR$/Benchmark.cs" />
         <option value="$PROJECT_DIR$/UnitTest1.cs" />
         <option value="$PROJECT_DIR$/RNG.cs" />
+        <option value="$PROJECT_DIR$/Numeric.cs" />
       </list>
     </option>
   </component>
@@ -170,12 +176,12 @@
       <updated>1504793731222</updated>
       <workItem from="1504793734207" duration="332000" />
       <workItem from="1504795193432" duration="121000" />
-      <workItem from="1504795337486" duration="1923000" />
+      <workItem from="1504795337486" duration="2908000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2376000" />
+    <option name="totallyTimeSpent" value="3361000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -192,18 +198,18 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970297" sideWeight="0.4978701" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.51277953" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33663365" sideWeight="0.40894568" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.5170394" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33663365" sideWeight="0.4057508" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970297" sideWeight="0.49574015" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="NuGet" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18636848" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18636848" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970297" sideWeight="0.4978701" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16613418" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.48722044" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16613418" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4" sideWeight="0.48296058" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -218,37 +224,45 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="3" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/RNG.cs">
+    <entry file="file://$PROJECT_DIR$/Numeric.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="12" column="1" lean-forward="false" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
           <folding>
-            <marker date="1504797790000" expanded="false" signature="6:57" ph="..." />
-            <marker date="1504797790000" expanded="true" signature="84:671" ph="{...}" />
-            <marker date="1504797790000" expanded="true" signature="107:669" ph="{...}" />
-            <marker date="1504797790000" expanded="true" signature="175:663" ph="{...}" />
-            <marker date="1504797790000" expanded="true" signature="393:653" ph="{...}" />
-            <marker date="1504797790000" expanded="true" signature="509:639" ph="{...}" />
+            <marker date="1504799348000" expanded="false" signature="6:57" ph="..." />
+            <marker date="1504799348000" expanded="true" signature="84:1114" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="111:1112" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="126:212" ph="/// RNG -Линейный конгруэнтный генератор. ... " />
+            <marker date="1504799348000" expanded="true" signature="274:721" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="492:711" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="581:697" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="731:806" ph="/// Наибольший общий делитель. ... " />
+            <marker date="1504799348000" expanded="true" signature="847:1106" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="944:1049" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RNG.cs">
+    <entry file="file://$PROJECT_DIR$/Numeric.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1504797790000" expanded="false" signature="6:57" ph="..." />
-            <marker date="1504797790000" expanded="true" signature="84:671" ph="{...}" />
-            <marker date="1504797790000" expanded="true" signature="107:669" ph="{...}" />
-            <marker date="1504797790000" expanded="true" signature="175:663" ph="{...}" />
-            <marker date="1504797790000" expanded="true" signature="393:653" ph="{...}" />
-            <marker date="1504797790000" expanded="true" signature="509:639" ph="{...}" />
+            <marker date="1504799348000" expanded="false" signature="6:57" ph="..." />
+            <marker date="1504799348000" expanded="true" signature="84:1114" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="111:1112" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="126:212" ph="/// RNG -Линейный конгруэнтный генератор. ... " />
+            <marker date="1504799348000" expanded="true" signature="274:721" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="492:711" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="581:697" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="731:806" ph="/// Наибольший общий делитель. ... " />
+            <marker date="1504799348000" expanded="true" signature="847:1106" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="944:1049" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -267,17 +281,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/RNG.cs">
+    <entry file="file://$PROJECT_DIR$/Numeric.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+        <state relative-caret-position="356">
+          <caret line="39" column="13" lean-forward="true" selection-start-line="35" selection-start-column="0" selection-end-line="45" selection-end-column="33" />
           <folding>
-            <marker date="1504797790000" expanded="false" signature="6:57" ph="..." />
-            <marker date="1504797790000" expanded="true" signature="84:671" ph="{...}" />
-            <marker date="1504797790000" expanded="true" signature="107:669" ph="{...}" />
-            <marker date="1504797790000" expanded="true" signature="175:663" ph="{...}" />
-            <marker date="1504797790000" expanded="true" signature="393:653" ph="{...}" />
-            <marker date="1504797790000" expanded="true" signature="509:639" ph="{...}" />
+            <marker date="1504799348000" expanded="false" signature="6:57" ph="..." />
+            <marker date="1504799348000" expanded="true" signature="84:1114" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="111:1112" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="126:212" ph="/// RNG -Линейный конгруэнтный генератор. ... " />
+            <marker date="1504799348000" expanded="true" signature="274:721" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="492:711" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="581:697" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="731:806" ph="/// Наибольший общий делитель. ... " />
+            <marker date="1504799348000" expanded="true" signature="847:1106" ph="{...}" />
+            <marker date="1504799348000" expanded="true" signature="944:1049" ph="{...}" />
           </folding>
         </state>
       </provider>
