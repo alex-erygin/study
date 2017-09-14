@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbfbb73a-8cb8-47fd-8a75-12f0eb72a08f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Algolib/Numeric.cs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NumericTests.cs" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Numeric.cs" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.idea.UnitTestProject/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/.idea.UnitTestProject/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.idea.UnitTestProject/riderModule.iml" afterPath="$PROJECT_DIR$/.idea/.idea.UnitTestProject/riderModule.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UnitTestProject.csproj" afterPath="$PROJECT_DIR$/UnitTestProject.csproj" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/UnitTestProject.sln" afterPath="$PROJECT_DIR$/UnitTestProject.sln" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Algolib/Numeric.cs" afterPath="$PROJECT_DIR$/Algolib/Numeric.cs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NumericTests.cs" afterPath="$PROJECT_DIR$/NumericTests.cs" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,20 +15,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="NumericTests.cs" pinned="false" current-in-tab="false">
+      <file leaf-file-name="NumericTests.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NumericTests.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="446">
-              <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
+            <state relative-caret-position="465">
+              <caret line="31" column="53" lean-forward="false" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
               <folding>
-                <marker date="1505384905000" expanded="true" signature="6:67" ph="..." />
-                <marker date="1505384905000" expanded="true" signature="94:851" ph="{...}" />
-                <marker date="1505384905000" expanded="true" signature="101:173" ph="/// Тесты для &lt;see cref=&quot;Numeric&quot;/&gt; ... " />
-                <marker date="1505384905000" expanded="true" signature="221:849" ph="{...}" />
-                <marker date="1505384905000" expanded="true" signature="236:311" ph="/// Наибольший общий делитель. ... " />
-                <marker date="1505384905000" expanded="true" signature="411:522" ph="{...}" />
-                <marker date="1505384905000" expanded="true" signature="533:603" ph="/// Возведение в степень. ... " />
-                <marker date="1505384905000" expanded="true" signature="687:843" ph="{...}" />
+                <marker date="1505387539000" expanded="true" signature="6:67" ph="..." />
+                <marker date="1505387539000" expanded="true" signature="94:978" ph="{...}" />
+                <marker date="1505387539000" expanded="true" signature="101:173" ph="/// Тесты для &lt;see cref=&quot;Numeric&quot;/&gt; ... " />
+                <marker date="1505387539000" expanded="true" signature="221:976" ph="{...}" />
+                <marker date="1505387539000" expanded="true" signature="331:442" ph="{...}" />
+                <marker date="1505387539000" expanded="true" signature="528:684" ph="{...}" />
+                <marker date="1505387539000" expanded="true" signature="854:970" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -42,23 +36,29 @@
       <file leaf-file-name="Numeric.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Algolib/Numeric.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+            <state relative-caret-position="448">
+              <caret line="54" column="34" lean-forward="false" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
               <folding>
-                <marker date="1505384322000" expanded="true" signature="33:806" ph="{...}" />
-                <marker date="1505384322000" expanded="true" signature="40:113" ph="/// Реализация численных алгоритмов. ... " />
-                <marker date="1505384322000" expanded="true" signature="138:804" ph="{...}" />
-                <marker date="1505384322000" expanded="true" signature="153:231" ph="/// Возвести число а в степень N. ... " />
-                <marker date="1505384322000" expanded="true" signature="277:484" ph="{...}" />
-                <marker date="1505384322000" expanded="true" signature="494:579" ph="/// Вычислить наибольший общий делитель. ... " />
-                <marker date="1505384322000" expanded="true" signature="623:798" ph="{...}" />
-                <marker date="1505384322000" expanded="true" signature="660:765" ph="{...}" />
+                <marker date="1505387055000" expanded="true" signature="6:47" ph="..." />
+                <marker date="1505387055000" expanded="true" signature="82:1705" ph="{...}" />
+                <marker date="1505387055000" expanded="true" signature="89:162" ph="/// Реализация численных алгоритмов. ... " />
+                <marker date="1505387055000" expanded="true" signature="187:1703" ph="{...}" />
+                <marker date="1505387055000" expanded="true" signature="202:280" ph="/// Возвести число а в степень N. ... " />
+                <marker date="1505387055000" expanded="true" signature="326:533" ph="{...}" />
+                <marker date="1505387055000" expanded="true" signature="543:645" ph="/// Вычислить наибольший общий делитель ( O ( log(N) ) ). ... " />
+                <marker date="1505387055000" expanded="true" signature="689:864" ph="{...}" />
+                <marker date="1505387055000" expanded="true" signature="726:831" ph="{...}" />
+                <marker date="1505387055000" expanded="true" signature="874:975" ph="/// Разложить число на простые множители ( O(Sqrt(N)) ). ... " />
+                <marker date="1505387055000" expanded="true" signature="1031:1697" ph="{...}" />
+                <marker date="1505387055000" expanded="true" signature="1120:1217" ph="{...}" />
+                <marker date="1505387055000" expanded="true" signature="1323:1580" ph="{...}" />
+                <marker date="1505387055000" expanded="true" signature="1377:1541" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Benchmark.cs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Benchmark.cs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Benchmark.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
@@ -91,8 +91,8 @@
         <option value="$PROJECT_DIR$/UnitTest1.cs" />
         <option value="$PROJECT_DIR$/RNG.cs" />
         <option value="$PROJECT_DIR$/MyLib/Class1.cs" />
-        <option value="$PROJECT_DIR$/Algolib/Numeric.cs" />
         <option value="$PROJECT_DIR$/Numeric.cs" />
+        <option value="$PROJECT_DIR$/Algolib/Numeric.cs" />
         <option value="$PROJECT_DIR$/NumericTests.cs" />
       </list>
     </option>
@@ -225,12 +225,12 @@
       <workItem from="1504795193432" duration="121000" />
       <workItem from="1504795337486" duration="3333000" />
       <workItem from="1505381109547" duration="787000" />
-      <workItem from="1505382005563" duration="2700000" />
+      <workItem from="1505382005563" duration="4464000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7273000" />
+    <option name="totallyTimeSpent" value="9037000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -243,12 +243,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="982" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970297" sideWeight="0.4978701" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Errors In Solution" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33595505" sideWeight="0.5990415" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Unit Tests" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33595505" sideWeight="0.40095848" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33595505" sideWeight="0.6054313" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Unit Tests" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33595505" sideWeight="0.39456868" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970297" sideWeight="0.49574015" order="7" side_tool="false" content_ui="tabs" />
@@ -257,7 +256,7 @@
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32970297" sideWeight="0.4978701" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16613418" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.48296058" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.4744409" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -273,7 +272,15 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/NumericTests.cs</url>
+          <line>35</line>
+          <properties startOffset="926" endOffset="960" documentPath="$PROJECT_DIR$/NumericTests.cs" />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -283,14 +290,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1505384905000" expanded="true" signature="6:67" ph="..." />
-            <marker date="1505384905000" expanded="true" signature="94:851" ph="{...}" />
-            <marker date="1505384905000" expanded="true" signature="101:173" ph="/// Тесты для &lt;see cref=&quot;Numeric&quot;/&gt; ... " />
-            <marker date="1505384905000" expanded="true" signature="221:849" ph="{...}" />
-            <marker date="1505384905000" expanded="true" signature="236:311" ph="/// Наибольший общий делитель. ... " />
-            <marker date="1505384905000" expanded="true" signature="411:522" ph="{...}" />
-            <marker date="1505384905000" expanded="true" signature="533:603" ph="/// Возведение в степень. ... " />
-            <marker date="1505384905000" expanded="true" signature="687:843" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="6:67" ph="..." />
+            <marker date="1505387539000" expanded="true" signature="94:978" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="101:173" ph="/// Тесты для &lt;see cref=&quot;Numeric&quot;/&gt; ... " />
+            <marker date="1505387539000" expanded="true" signature="221:976" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="331:442" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="528:684" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="854:970" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -314,14 +320,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1505384905000" expanded="true" signature="6:67" ph="..." />
-            <marker date="1505384905000" expanded="true" signature="94:851" ph="{...}" />
-            <marker date="1505384905000" expanded="true" signature="101:173" ph="/// Тесты для &lt;see cref=&quot;Numeric&quot;/&gt; ... " />
-            <marker date="1505384905000" expanded="true" signature="221:849" ph="{...}" />
-            <marker date="1505384905000" expanded="true" signature="236:311" ph="/// Наибольший общий делитель. ... " />
-            <marker date="1505384905000" expanded="true" signature="411:522" ph="{...}" />
-            <marker date="1505384905000" expanded="true" signature="533:603" ph="/// Возведение в степень. ... " />
-            <marker date="1505384905000" expanded="true" signature="687:843" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="6:67" ph="..." />
+            <marker date="1505387539000" expanded="true" signature="94:978" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="101:173" ph="/// Тесты для &lt;see cref=&quot;Numeric&quot;/&gt; ... " />
+            <marker date="1505387539000" expanded="true" signature="221:976" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="331:442" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="528:684" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="854:970" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -345,14 +350,13 @@
         <state relative-caret-position="165">
           <caret line="12" column="1" lean-forward="false" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
           <folding>
-            <marker date="1505384905000" expanded="true" signature="6:67" ph="..." />
-            <marker date="1505384905000" expanded="true" signature="94:851" ph="{...}" />
-            <marker date="1505384905000" expanded="true" signature="101:173" ph="/// Тесты для &lt;see cref=&quot;Numeric&quot;/&gt; ... " />
-            <marker date="1505384905000" expanded="true" signature="221:849" ph="{...}" />
-            <marker date="1505384905000" expanded="true" signature="236:311" ph="/// Наибольший общий делитель. ... " />
-            <marker date="1505384905000" expanded="true" signature="411:522" ph="{...}" />
-            <marker date="1505384905000" expanded="true" signature="533:603" ph="/// Возведение в степень. ... " />
-            <marker date="1505384905000" expanded="true" signature="687:843" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="6:67" ph="..." />
+            <marker date="1505387539000" expanded="true" signature="94:978" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="101:173" ph="/// Тесты для &lt;see cref=&quot;Numeric&quot;/&gt; ... " />
+            <marker date="1505387539000" expanded="true" signature="221:976" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="331:442" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="528:684" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="854:970" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -362,53 +366,18 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1505384905000" expanded="true" signature="6:67" ph="..." />
-            <marker date="1505384905000" expanded="true" signature="94:851" ph="{...}" />
-            <marker date="1505384905000" expanded="true" signature="101:173" ph="/// Тесты для &lt;see cref=&quot;Numeric&quot;/&gt; ... " />
-            <marker date="1505384905000" expanded="true" signature="221:849" ph="{...}" />
-            <marker date="1505384905000" expanded="true" signature="236:311" ph="/// Наибольший общий делитель. ... " />
-            <marker date="1505384905000" expanded="true" signature="411:522" ph="{...}" />
-            <marker date="1505384905000" expanded="true" signature="533:603" ph="/// Возведение в степень. ... " />
-            <marker date="1505384905000" expanded="true" signature="687:843" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="6:67" ph="..." />
+            <marker date="1505387539000" expanded="true" signature="94:978" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="101:173" ph="/// Тесты для &lt;see cref=&quot;Numeric&quot;/&gt; ... " />
+            <marker date="1505387539000" expanded="true" signature="221:976" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="331:442" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="528:684" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="854:970" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MyLib/Class1.cs" />
-    <entry file="file://$PROJECT_DIR$/Algolib/Numeric.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
-          <folding>
-            <marker date="1505384322000" expanded="true" signature="33:806" ph="{...}" />
-            <marker date="1505384322000" expanded="true" signature="40:113" ph="/// Реализация численных алгоритмов. ... " />
-            <marker date="1505384322000" expanded="true" signature="138:804" ph="{...}" />
-            <marker date="1505384322000" expanded="true" signature="153:231" ph="/// Возвести число а в степень N. ... " />
-            <marker date="1505384322000" expanded="true" signature="277:484" ph="{...}" />
-            <marker date="1505384322000" expanded="true" signature="494:579" ph="/// Вычислить наибольший общий делитель. ... " />
-            <marker date="1505384322000" expanded="true" signature="623:798" ph="{...}" />
-            <marker date="1505384322000" expanded="true" signature="660:765" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NumericTests.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="446">
-          <caret line="34" column="9" lean-forward="true" selection-start-line="34" selection-start-column="9" selection-end-line="34" selection-end-column="9" />
-          <folding>
-            <marker date="1505384905000" expanded="true" signature="6:67" ph="..." />
-            <marker date="1505384905000" expanded="true" signature="94:851" ph="{...}" />
-            <marker date="1505384905000" expanded="true" signature="101:173" ph="/// Тесты для &lt;see cref=&quot;Numeric&quot;/&gt; ... " />
-            <marker date="1505384905000" expanded="true" signature="221:849" ph="{...}" />
-            <marker date="1505384905000" expanded="true" signature="236:311" ph="/// Наибольший общий делитель. ... " />
-            <marker date="1505384905000" expanded="true" signature="411:522" ph="{...}" />
-            <marker date="1505384905000" expanded="true" signature="533:603" ph="/// Возведение в степень. ... " />
-            <marker date="1505384905000" expanded="true" signature="687:843" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Benchmark.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -419,6 +388,45 @@
             <marker date="1505381121000" expanded="true" signature="110:517" ph="{...}" />
             <marker date="1505381121000" expanded="true" signature="271:366" ph="{...}" />
             <marker date="1505381121000" expanded="true" signature="398:511" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Algolib/Numeric.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="54" column="34" lean-forward="false" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
+          <folding>
+            <marker date="1505387055000" expanded="true" signature="6:47" ph="..." />
+            <marker date="1505387055000" expanded="true" signature="82:1705" ph="{...}" />
+            <marker date="1505387055000" expanded="true" signature="89:162" ph="/// Реализация численных алгоритмов. ... " />
+            <marker date="1505387055000" expanded="true" signature="187:1703" ph="{...}" />
+            <marker date="1505387055000" expanded="true" signature="202:280" ph="/// Возвести число а в степень N. ... " />
+            <marker date="1505387055000" expanded="true" signature="326:533" ph="{...}" />
+            <marker date="1505387055000" expanded="true" signature="543:645" ph="/// Вычислить наибольший общий делитель ( O ( log(N) ) ). ... " />
+            <marker date="1505387055000" expanded="true" signature="689:864" ph="{...}" />
+            <marker date="1505387055000" expanded="true" signature="726:831" ph="{...}" />
+            <marker date="1505387055000" expanded="true" signature="874:975" ph="/// Разложить число на простые множители ( O(Sqrt(N)) ). ... " />
+            <marker date="1505387055000" expanded="true" signature="1031:1697" ph="{...}" />
+            <marker date="1505387055000" expanded="true" signature="1120:1217" ph="{...}" />
+            <marker date="1505387055000" expanded="true" signature="1323:1580" ph="{...}" />
+            <marker date="1505387055000" expanded="true" signature="1377:1541" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NumericTests.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="53" lean-forward="false" selection-start-line="31" selection-start-column="53" selection-end-line="31" selection-end-column="53" />
+          <folding>
+            <marker date="1505387539000" expanded="true" signature="6:67" ph="..." />
+            <marker date="1505387539000" expanded="true" signature="94:978" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="101:173" ph="/// Тесты для &lt;see cref=&quot;Numeric&quot;/&gt; ... " />
+            <marker date="1505387539000" expanded="true" signature="221:976" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="331:442" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="528:684" ph="{...}" />
+            <marker date="1505387539000" expanded="true" signature="854:970" ph="{...}" />
           </folding>
         </state>
       </provider>

@@ -1,4 +1,7 @@
-﻿namespace UnitTestProject.Algolib
+﻿using System;
+using System.Collections.Generic;
+
+namespace UnitTestProject.Algolib
 {
     /// <summary>
     /// Реализация численных алгоритмов.
@@ -21,7 +24,7 @@
         }
 
         /// <summary>
-        /// Вычислить наибольший общий делитель.
+        /// Вычислить наибольший общий делитель ( O ( log(N) ) ).
         /// </summary>
         public static int Nod(int a, int b)
         {
@@ -33,6 +36,38 @@
             }
 
             return a;
+        }
+
+        /// <summary>
+        /// Разложить число на простые множители ( O(Sqrt(N)) ).
+        /// </summary>
+        public static List<int> FindFactors(int number)
+        {
+            var factors = new List<int>();
+            while (number % 2 == 0)
+            {
+                factors.Add(2);
+                number = number / 2;
+            }
+
+            var i = 3;
+            var maxFactor = Math.Sqrt(number);
+            while (i <= maxFactor)
+            {
+                while (number % i == 0)
+                {
+                    factors.Add(i);
+                    number = number / i;
+                    maxFactor = Math.Sqrt(number);
+                }
+
+                i += 2;
+            }
+            
+            if (number > 1)
+                factors.Add(number);
+
+            return factors;
         }
     }
 }
