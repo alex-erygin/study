@@ -35,5 +35,13 @@ namespace UnitTestProject
             var actual = Numeric.FindFactors(n);
             Assert.AreEqual(expected, actual);
         }
+
+        [Test]
+        [TestCase(10, new []{1,2,3,5,7})]   
+        public void FindPrimesTest(int n, int[] expectedPrimes)
+        {
+            var actual = Numeric.FindPrimes(n);
+            Assert.AreEqual(expectedPrimes, actual);
+        }
     }
 }
