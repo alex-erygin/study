@@ -37,7 +37,7 @@ namespace UnitTestProject
         }
 
         [Test]
-        [TestCase(10, new []{1,2,3,5,7})]   
+        [TestCase(10, new [] { 1, 2, 3, 5, 7 })]   
         public void FindPrimesTest(int n, int[] expectedPrimes)
         {
             var actual = Numeric.FindPrimes(n);

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using NUnit.Framework;
 
 namespace UnitTestProject.Algolib
 {
@@ -24,6 +22,7 @@ namespace UnitTestProject.Algolib
             var b = Power(a, n / 2);
             return b * b;
         }
+        
 
         /// <summary>
         /// Вычислить наибольший общий делитель ( O ( log(N) ) ).
@@ -40,6 +39,7 @@ namespace UnitTestProject.Algolib
             return a;
         }
 
+        
         /// <summary>
         /// Разложить число на простые множители ( O(Sqrt(N)) ).
         /// </summary>
@@ -72,6 +72,7 @@ namespace UnitTestProject.Algolib
             return factors;
         }
 
+        
         /// <summary>
         /// Найти простые числа от 1 до n.
         /// </summary>
@@ -85,12 +86,12 @@ namespace UnitTestProject.Algolib
                 isComposite[i] = true;
             }
             
-            int nextPrime = 3;
+            var nextPrime = 3;
             var stopAt = Math.Sqrt(n);
             while (nextPrime <= stopAt)
             {
                 // Исключаем числа, кратные данному простому числу.
-                for (int i = nextPrime * 2; i < n; i+= nextPrime)
+                for (var i = nextPrime * 2; i < n; i+= nextPrime)
                 {
                     isComposite[i] = true;
                 }
