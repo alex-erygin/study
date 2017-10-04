@@ -123,7 +123,7 @@ namespace UnitTestProject.Algolib
         /// <param name="xMin">Начальное значение x.</param>
         /// <param name="xMax">Конечное значение x.</param>
         /// <param name="numIntervals">Количество интервалов (чем больше, тем точнее).</param>
-        /// <returns>Площадь прямоугольника.</returns>
+        /// <returns>Площадь.</returns>
         public static float UseRectangleRule(Func<float, float> function, float xMin, float xMax, int numIntervals)
         {
             float dx = (xMax - xMin) / numIntervals;
@@ -147,7 +147,7 @@ namespace UnitTestProject.Algolib
         /// <param name="xMin">Начальное значение x.</param>
         /// <param name="xMax">Конечное значение x.</param>
         /// <param name="numIntervals">Количество интервалов (чем больше, тем точнее).</param>
-        /// <returns>Площадь прямоугольника.</returns>
+        /// <returns>Площадь.</returns>
         public static float UseTrapezoidRule(Func<float, float> function, float xMin, float xMax, int numIntervals)
         {
             float dx = (xMax - xMin) / numIntervals;
