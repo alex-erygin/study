@@ -139,5 +139,29 @@ namespace UnitTestProject.Algolib
 
             return totalArea;
         }
+
+        /// <summary>
+        /// Вычислить площадь по формуле трапеции. 
+        /// </summary>
+        /// <param name="function">Функция кривой.</param>
+        /// <param name="xMin">Начальное значение x.</param>
+        /// <param name="xMax">Конечное значение x.</param>
+        /// <param name="numIntervals">Количество интервалов (чем больше, тем точнее).</param>
+        /// <returns>Площадь прямоугольника.</returns>
+        public static float UseTrapezoidRule(Func<float, float> function, float xMin, float xMax, int numIntervals)
+        {
+            float dx = (xMax - xMin) / numIntervals;
+
+            float totalArea = 0;
+            float x = xMin;
+
+            for (int i = 1; i <= numIntervals; i++)
+            {
+                totalArea = totalArea + dx * (function(x) + function(x + dx)) / 2;
+                x = x + dx;
+            }
+
+            return totalArea;
+        }
     }
 }
