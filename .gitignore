@@ -229,3 +229,4 @@ telegram/packages/
 telegram/source/huliobot/SecretSettings.xml
 .vs
 cpp/white-belt
+grpc/python-tutorial/helloworld/grpc/
