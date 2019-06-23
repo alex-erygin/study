@@ -230,3 +230,8 @@ telegram/source/huliobot/SecretSettings.xml
 .vs
 cpp/white-belt
 grpc/python-tutorial/helloworld/grpc/
+go/src/awesomeProject/.idea/workspace.xml
+go/src/awesomeProject/.idea/vcs.xml
+go/src/awesomeProject/.idea/misc.xml
+go/src/awesomeProject/.idea/awesomeProject.iml
+go/src/awesomeProject/.idea/modules.xml
