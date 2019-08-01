@@ -38,7 +38,7 @@ GET /courses/_search
 }
 ```
 
-Пример запроса с multi_mutch. Работает как ИЛИ.
+Пример запроса с multi_mutch. 
 
 ```js
 GET /courses/_search
