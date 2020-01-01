@@ -1,0 +1,6 @@
+# запуск через дохер
+docker run -d --name camunda -p 8080:8080 camunda/camunda-bpm-platform:latest
+
+http://localhost:8080/camunda-welcome/index.html
+
+https://docs.camunda.org/manual/latest/reference/rest/
