@@ -21,4 +21,6 @@ client.subscribe('charge-card', async function({ task, taskService }) {
 
   // Complete the task
   await taskService.complete(task);
+
+  //await taskService.handleFailure(task, {Messagr:"Хана"});
 });
