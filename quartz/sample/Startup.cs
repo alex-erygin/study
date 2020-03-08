@@ -1,8 +1,11 @@
+using CrystalQuartz.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Quartz;
 using Quartz.Impl;
 
 namespace sample
@@ -20,6 +23,12 @@ namespace sample
             services.AddSingleton(scheduler);
 
             services.AddHostedService<QuartzHostedService>();
+
+            // If using Kestrel:
+            services.Configure<KestrelServerOptions>(options =>
+            {
+                options.AllowSynchronousIO = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -31,17 +40,10 @@ namespace sample
             }
 
             app.UseRouting();
-
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
-            /*
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
-            });*/
+            var scheduler = app.ApplicationServices.GetService<IScheduler>();
+            app.UseCrystalQuartz(()=> scheduler);
         }
     }
 }
