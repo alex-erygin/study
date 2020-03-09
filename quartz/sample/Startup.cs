@@ -1,4 +1,5 @@
 using System.Collections.Specialized;
+using System.Threading.Tasks;
 using CrystalQuartz.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Quartz;
 using Quartz.Impl;
+using sample.Jobs;
 
 namespace sample
 {
@@ -37,7 +39,35 @@ namespace sample
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
             var scheduler = app.ApplicationServices.GetService<IScheduler>();
-            app.UseCrystalQuartz(()=> scheduler);
+            RegisterJobs(scheduler).Wait();
+            app.UseCrystalQuartz(() => scheduler);
+        }
+
+
+        private async Task RegisterJobs(IScheduler scheduler)
+        {
+            await AddSmokeTestJob(scheduler);
+        }
+
+        private static async Task AddSmokeTestJob(IScheduler scheduler)
+        {
+            var jobDetails = JobBuilder
+                .CreateForAsync<TestJob>()
+                .WithIdentity("Smoke Test")
+                .WithDescription("snoop dog")
+                .Build();
+
+            var trigger = TriggerBuilder
+                .Create()
+                .WithIdentity("every-day-trigger")
+                .WithSimpleSchedule(builder => builder.WithIntervalInSeconds(10).RepeatForever().Build())
+                .StartNow()
+                .Build();
+
+            if (scheduler.GetJobDetail(jobDetails.Key).Result == null)
+            {
+                await scheduler.ScheduleJob(jobDetails, trigger);
+            }
         }
 
 
@@ -54,7 +84,7 @@ namespace sample
                 ["quartz.serializer.type"] = "json",
                 ["quartz.jobStore.tablePrefix"] = "qrtz_",
                 ["quartz.dataSource.default.connectionString"] =
-                    "Server=127.0.0.1;Port=5432;Database=scheduler;Userid=postgres;Password=--;Pooling=true;MinPoolSize=1;MaxPoolSize=2;",
+                    "Server=127.0.0.1;Port=5432;Database=scheduler;Userid=postgres;Password=;Pooling=true;MinPoolSize=1;MaxPoolSize=2;",
                 ["quartz.jobStore.driverDelegateType"] = "Quartz.Impl.AdoJobStore.StdAdoDelegate, Quartz",
                 ["quartz.dataSource.default.provider"] = "Npgsql"
             };
