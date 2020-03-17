@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Quartz;
 
-namespace sample.Jobs
+namespace TysonFury.Jobs
 {
     public class TestJob : IJob
     {
