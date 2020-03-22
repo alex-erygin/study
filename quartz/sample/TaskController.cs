@@ -16,23 +16,5 @@ namespace TysonFury
         {
             _scheduler = scheduler;
         }
-
-        // GET: api/<controller>
-        [HttpGet]
-        public Task Get()
-        {
-            var jobDetails = JobBuilder
-                .CreateForAsync<TestJob>()
-                .WithIdentity("Da Job")
-                .WithDescription("Da big Job")
-                .Build();
-
-            var trigger = TriggerBuilder
-                .Create()
-                .StartNow()
-                .Build();
-
-            return _scheduler.ScheduleJob(jobDetails, trigger);
-        }
     }
 }

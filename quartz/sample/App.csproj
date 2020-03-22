@@ -36,5 +36,4 @@
     <Content Remove="JobMigration\**" />
     <Content Remove="Tests\**" />
   </ItemGroup>
-
 </Project>
