@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Quartz;
 using TysonFury.Jobs;
 
@@ -10,11 +12,19 @@ namespace TysonFury
     [Route("api/task")]
     public class TaskController : Controller
     {
-        private IScheduler _scheduler;
+        private readonly ILogger<TaskController> _logger;
 
-        public TaskController(IScheduler scheduler)
+        public TaskController(ILogger<TaskController> logger)
         {
-            _scheduler = scheduler;
+            _logger = logger;
+        }
+
+        // GET: api/<controller>
+        [HttpGet]
+        public Task Get()
+        {
+            _logger.LogError("Coronavirus detected!");
+            return Task.CompletedTask;
         }
     }
 }

@@ -34,7 +34,7 @@ namespace TysonFury.Jobs
         {
             public Task Execute(IJobExecutionContext context)
             {
-                Console.WriteLine("Все в дыму... Не видно кода...");
+                Console.WriteLine("Все в дыму... Не видно кода... Трям тарарам.");
                 return Task.CompletedTask;
             }
         }

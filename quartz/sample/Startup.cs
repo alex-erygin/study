@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Prometheus;
 using Quartz;
 using Quartz.Impl;
 using TysonFury.Jobs.Common;
@@ -53,6 +54,13 @@ namespace TysonFury
             ApplyMigrations(app);
             
             ConfigureQuartzScheduler(app);
+
+            ConfigureMetricServer(app);
+        }
+
+        private static void ConfigureMetricServer(IApplicationBuilder app)
+        {
+            app.UseMetricServer();
         }
 
         private void ConfigureQuartzScheduler(IApplicationBuilder app)
