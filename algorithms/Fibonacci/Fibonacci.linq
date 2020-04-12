@@ -13,7 +13,8 @@ void Main()
 }
 
 // Define other methods, classes and namespaces here
-public int Fib(int n) {
+public int Fib(int n)
+{
 	if ( n == 1 ) {
 		return 0;
 	}
@@ -25,7 +26,8 @@ public int Fib(int n) {
 	return Fib(n-1) + Fib(n-2);
 }
 
-public class FibOptimized {
+public class FibOptimized
+{
 	private readonly Dictionary<int, int> cache = new Dictionary<int, int>();
 	
 	public FibOptimized()
@@ -47,7 +49,8 @@ public class FibOptimized {
 }
 
 
-public int FibWithoutRecursion( int n ) {
+public int FibWithoutRecursion( int n )
+{
 	int prev = 1;
 	int prevprev = 0;
 	
