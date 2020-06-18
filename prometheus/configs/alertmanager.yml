@@ -1,0 +1,17 @@
+global:
+  smtp_smarthost: 'smtp.sendgrid.net:587'
+  smtp_from: 'alex.erygin@gmail.com'
+  smtp_auth_username: 'apikey'
+  smtp_auth_password: '---'
+  resolve_timeout: 5m
+
+route:
+  group_by: ['alertname']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 1h
+  receiver: 'my-mail'
+receivers:
+- name: 'my-mail'
+  email_configs:
+  - to: 'alex.erygin@gmail.com'
