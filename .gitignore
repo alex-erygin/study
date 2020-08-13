@@ -235,3 +235,6 @@ go/src/awesomeProject/.idea/vcs.xml
 go/src/awesomeProject/.idea/misc.xml
 go/src/awesomeProject/.idea/awesomeProject.iml
 go/src/awesomeProject/.idea/modules.xml
+dynamodb/venv/
+dynamodb/sou/**
+dynamodb/__pycache__/create_table.cpython-37.pyc
