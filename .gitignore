@@ -238,3 +238,5 @@ go/src/awesomeProject/.idea/modules.xml
 dynamodb/venv/
 dynamodb/sou/**
 dynamodb/__pycache__/create_table.cpython-37.pyc
+*.pyc
+azure/text-analysis/venv/
