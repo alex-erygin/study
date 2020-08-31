@@ -15,12 +15,21 @@ def main():
             {"id": "2", "language": "en", "text": "Fill the goblet again! for I never before Felt the glow which now "
                                                   "gladdens my heart to its core;"},
             {"id": "3", "language": "ru", "text": "Поздравляем вам, Штирлиц! У вас родился сын! По щеке Штирлица "
-                                                  "прокатилась слеза. Ону уже 5 лет не был дома..."}
+                                                  "прокатилась слеза. Он уже 5 лет не был дома..."}
         ]
 
-        response = client.sentiment(documents=documents)
-        for doc in response.documents:
+        sentiment_response = client.sentiment(documents=documents)
+        for doc in sentiment_response.documents:
             print("Doc ID: ", doc.id, ", Sentiment Score: ", "{:.2f}".format(doc.score))
+
+        key_phrase_response = client.key_phrases(documents=documents)
+        for document in key_phrase_response.documents:
+            print("Document Id: ", document.id)
+            print("\tKey Phrases:")
+            for phrase in document.key_phrases:
+                print("\t\t", phrase)
+
+
     except Exception as err:
         print("Encountered exception. {}".format(err))
 
