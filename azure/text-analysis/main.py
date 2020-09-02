@@ -13,9 +13,7 @@ def main():
              "text": "The kiss, dear maid! thy lip has left  Shall never part from mine Till happier hourse restore "
                      "the glift Untainted back to thine."},
             {"id": "2", "language": "en", "text": "Fill the goblet again! for I never before Felt the glow which now "
-                                                  "gladdens my heart to its core;"},
-            {"id": "3", "language": "ru", "text": "Поздравляем вам, Штирлиц! У вас родился сын! По щеке Штирлица "
-                                                  "прокатилась слеза. Он уже 5 лет не был дома..."}
+                                                  "gladdens my heart to its core;"}
         ]
 
         sentiment_response = client.sentiment(documents=documents)
