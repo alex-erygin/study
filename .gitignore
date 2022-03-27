@@ -240,3 +240,9 @@ dynamodb/sou/**
 dynamodb/__pycache__/create_table.cpython-37.pyc
 *.pyc
 azure/text-analysis/venv/
+*.TAG
+git-python/.idea/
+*.lock
+rust/rust-in-action/hello/target/
+rust/rust-in-action/ch2/non-base-2/target/
+rust/rust-in-action/ch2/intro-to-numbers/target/
