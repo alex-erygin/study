@@ -247,3 +247,6 @@ rust/rust-in-action/hello/target/
 rust/rust-in-action/ch2/non-base-2/target/
 rust/rust-in-action/ch2/intro-to-numbers/target/
 rust/rust-in-action/ch2/mandelbrot/target/.rustc_info.json
+rust/rust-in-action/ch2/mandelbrot/.idea/
+rust/rust-in-action/ch2/greb/.idea/
+rust/rust-in-action/ch2/greb/target/.rustc_info.json
