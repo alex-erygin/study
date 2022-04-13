@@ -250,3 +250,8 @@ rust/rust-in-action/ch2/mandelbrot/target/.rustc_info.json
 rust/rust-in-action/ch2/mandelbrot/.idea/
 rust/rust-in-action/ch2/greb/.idea/
 rust/rust-in-action/ch2/greb/target/.rustc_info.json
+rust/rust-in-action/ch6/particles/.idea/.gitignore
+rust/rust-in-action/ch6/particles/.idea/modules.xml
+rust/rust-in-action/ch6/particles/.idea/particles.iml
+rust/rust-in-action/ch6/particles/.idea/vcs.xml
+rust/rust-in-action/ch6/particles/target/.rustc_info.json
