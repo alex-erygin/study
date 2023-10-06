@@ -12,6 +12,10 @@
         <None Include="part3.fsx" />
         <None Include="part4.fsx" />
         <None Include="part5.fsx" />
+        <None Include="option.fsx" />
+        <None Include="inetropwithdotnet.fsx" />
+        <None Include="result.fsx" />
+        <None Include="functionCompositionWithResult.fsx" />
     </ItemGroup>
 
 </Project>
