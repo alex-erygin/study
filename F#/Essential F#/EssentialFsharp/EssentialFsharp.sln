@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# 
+#
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "С1-3", "С1-3\С1-3.fsproj", "{293C79E4-99CE-4951-A188-97B7037D133C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BB1CAED5-998D-4DB2-8706-0191866CDE47}"
@@ -10,6 +10,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BF1A72AF-B564-469B-9C7E-5ED32AD60E9E}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "MyProjectTests", "tests\MyProjectTests\MyProjectTests.fsproj", "{23435CF3-4CE5-4373-963B-2D6D5AD11A0C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "С5-IntroToCollections", "С5-IntroToCollections", "{35AAC7BC-C723-4E14-A29A-59DA1509D181}"
+	ProjectSection(SolutionItems) = preProject
+		lists.fsx = lists.fsx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
