@@ -1,3 +1,5 @@
+namespace CustomerTests
+
 open FsUnit
 open Xunit
 open MyProject.Customer

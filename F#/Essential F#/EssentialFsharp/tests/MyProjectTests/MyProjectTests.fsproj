@@ -30,6 +30,7 @@
   <ItemGroup>
     <Compile Include="CustomerTests.fs" />
     <Compile Include="CustomerTestsFsUnit.fs" />
+    <Compile Include="OrderTests.fs" />
   </ItemGroup>
 
 </Project>
