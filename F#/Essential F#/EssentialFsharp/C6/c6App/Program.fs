@@ -67,7 +67,6 @@ let fakeDataReader : DataReader =
         |> Ok
  
 
-
 [<EntryPoint>]
 let main argv =
     "C:\projects\study\F#\Essential F#\EssentialFsharp\C6\c6App\customers.csv"
