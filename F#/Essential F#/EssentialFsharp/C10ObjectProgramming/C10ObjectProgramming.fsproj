@@ -10,6 +10,7 @@
         <None Include="FizzBuzz.fsx" />
         <None Include="RecentlyUsedList.fsx" />
         <None Include="Coordinate.fsx" />
+        <None Include="expressions.fsx" />
     </ItemGroup>
 
 </Project>
